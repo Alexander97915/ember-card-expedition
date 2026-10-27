@@ -63,11 +63,6 @@
       "sha256": "a00314813d3b0329aa861e24bbcda07ad18af770fd527954bd2f5c7443d7df3a"
     },
     {
-      "path": "index.html",
-      "bytes": 23274,
-      "sha256": "96e5541b0ca2e7a86f74b296d55540970969f6b449fe1fe9598a7a521f9acf9b"
-    },
-    {
       "path": "swordsman-actions-v2.js",
       "bytes": 30656,
       "sha256": "242d9a79911d649e3cf7acff5a93c45a84fce3233759d4e8d603882155b710ef"
@@ -341,10 +336,25 @@
       "path": "assets/knight-five-actions-v1/spear-3.webp",
       "bytes": 141666,
       "sha256": "a550d2fc4169589ea768111ac01e9e2c7926264430e63c9507d0717b6105224f"
+    },
+    {
+      "path": "priest-v1.js",
+      "bytes": 9746,
+      "sha256": "560a3a824d041cab4f2096fae485aa3614d4f7c52864405a86dcec1aa0d58b6d"
+    },
+    {
+      "path": "priest-mechanisms.js",
+      "bytes": 5940,
+      "sha256": "92f93e12d50322c80630f8e92e3a8ba989408e886d869ac1b6036e46457ea35d"
+    },
+    {
+      "path": "index.html",
+      "bytes": 23333,
+      "sha256": "ad2ec8c1fe8c8368c4409639744df0d9842b40a41fe58aa183adab5890e2e0e1"
     }
   ],
-  "siteFileCount": 1398,
-  "siteBytes": 282211884,
+  "siteFileCount": 1399,
+  "siteBytes": 282218633,
   "actions": [
     "idle",
     "attack",
