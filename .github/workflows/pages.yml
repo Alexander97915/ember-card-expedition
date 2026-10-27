@@ -1,0 +1,40 @@
+name: Deploy Ember to GitHub Pages
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/pages.yml']
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Download verified game release
+        run: |
+          gh release download v387 --pattern ember-site-v387.tar.gz
+          echo "360c7a271b9c3d259084d04736fe890ee12dac48d83f141c9bf2a8bcde8a9c8c  ember-site-v387.tar.gz" | sha256sum --check
+          mkdir site
+          tar -xzf ember-site-v387.tar.gz -C site
+          test -f site/index.html
+          test -f site/save-transfer.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4
