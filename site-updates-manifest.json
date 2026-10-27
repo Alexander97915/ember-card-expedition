@@ -64,8 +64,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 23084,
-      "sha256": "e3be6c227ca4bde9b62cf9dd9b606198e620feb88a0fcb1c894a315e56370a69"
+      "bytes": 23274,
+      "sha256": "96e5541b0ca2e7a86f74b296d55540970969f6b449fe1fe9598a7a521f9acf9b"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -226,10 +226,125 @@
       "path": "monsters.js",
       "bytes": 30832,
       "sha256": "194f02764bb882b87df9f3c7cd7e3b0b9bfde3baac294266087c8cd72d2866f0"
+    },
+    {
+      "path": "knight-five-actions.js",
+      "bytes": 7269,
+      "sha256": "6beb72eaa3ee3de9e83366a44f689806628c45452943479f648370b5145e5227"
+    },
+    {
+      "path": "knight-five-actions.css",
+      "bytes": 1088,
+      "sha256": "5e7eafd06a51c32a7559abdb605fdd15e3b102417ef78a85237e64064579480a"
+    },
+    {
+      "path": "knight-five-frames.js",
+      "bytes": 23284,
+      "sha256": "39e7c25345462f97a44f7a9f7267bbb5528652f82823aa66ce5afdeb98976e08"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/blood-0.webp",
+      "bytes": 141972,
+      "sha256": "28cb52eee2becde07f298aa2e10a4b1279544249fab9b4f60519d4b4f5279c99"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/blood-1.webp",
+      "bytes": 157762,
+      "sha256": "d787c97825eca47b352630b1a54f2d5e752b90a208993cc9b4d951273125a42b"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/blood-2.webp",
+      "bytes": 135942,
+      "sha256": "865e24a7ab8968468022aa0c814a238bba7f358b0fb3ada40a51b350aa316bd9"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/blood-3.webp",
+      "bytes": 142342,
+      "sha256": "187c4d09041dac8456c33d3f3aed76f7ce14041b8c4f27255408defce023ed9e"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/chain-0.webp",
+      "bytes": 139860,
+      "sha256": "e2b6a8a572de6e2c314de22a661e1ffcde6b22ba990fd343a3f9bf9f4eff2064"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/chain-1.webp",
+      "bytes": 161850,
+      "sha256": "4ac4024263f49a39675f8b6ae3146849c459a9cbcfc62d23c87b187f2995fa50"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/chain-2.webp",
+      "bytes": 173502,
+      "sha256": "dd68694501ef493dfc1845e90028e244c2d6956cb3fbf6edc5613d28c156d565"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/chain-3.webp",
+      "bytes": 431936,
+      "sha256": "a7920da332b160b2a34e630b985ba9cfef5c42fa48a5203e836eaafedc4acb45"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/retribution-0.webp",
+      "bytes": 134312,
+      "sha256": "1381a23c2d3d81906317a460ca1c18ed9b3fde3c9eaf07f3919207465d8b57ce"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/retribution-1.webp",
+      "bytes": 171326,
+      "sha256": "6f614fca61aa009ff6e240cd7825cd6d338765541802c5c809c697725b163e60"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/retribution-2.webp",
+      "bytes": 169510,
+      "sha256": "7c49a4deebb2ecf451ebf129cb55356a0794ce2c90949b8724598cdfada67752"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/retribution-3.webp",
+      "bytes": 167252,
+      "sha256": "053f94f71cc8d3fba5124a3d640e58faa924e47e1574c9f4c59cb9bf3cc1b42b"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/seal-0.webp",
+      "bytes": 115850,
+      "sha256": "d7326fa8d94a551038cb5e723cbeb6dd850765758b29c6006854afa1f85783d5"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/seal-1.webp",
+      "bytes": 181892,
+      "sha256": "5e8a2e4a029a625698cfd963a78a683315218928bae35415af5dba30427aa0f5"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/seal-2.webp",
+      "bytes": 181002,
+      "sha256": "7ae8cf71027273174f1427ecd77607f2a6e7eedff40f83021c998df6dbcaa403"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/seal-3.webp",
+      "bytes": 210016,
+      "sha256": "a105b7a7d3da7c05fdb9769fccffe4a603cc1aa0157a6c2be9e5110a2e729f3f"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/spear-0.webp",
+      "bytes": 121452,
+      "sha256": "48eba962ca691e12aaab9bff63bdea74fb9f1eedf47f60b64c13f6f9fd19e0fa"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/spear-1.webp",
+      "bytes": 142316,
+      "sha256": "8116b73d8f5fc0cc1f22492fa394ec59462e583861613736a74eb3221b352790"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/spear-2.webp",
+      "bytes": 135278,
+      "sha256": "540e3edfd5294896015c23d6bc7f82d3fd5cd889c0fece1a9c2ad3b36bf19932"
+    },
+    {
+      "path": "assets/knight-five-actions-v1/spear-3.webp",
+      "bytes": 141666,
+      "sha256": "a550d2fc4169589ea768111ac01e9e2c7926264430e63c9507d0717b6105224f"
     }
   ],
-  "siteFileCount": 1375,
-  "siteBytes": 278823015,
+  "siteFileCount": 1398,
+  "siteBytes": 282211884,
   "actions": [
     "idle",
     "attack",

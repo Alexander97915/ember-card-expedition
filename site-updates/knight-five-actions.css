@@ -1,0 +1,9 @@
+/* The pause-aware presentation clock selects one cel. No independent CSS clock can restart or blink. */
+.battlefield .hero-poses.knight-five-poses{animation:none!important;transform:none!important;translate:none!important;pointer-events:none}
+.battlefield .hero-poses.knight-five-poses>.hero-cel{animation:none!important;transition:none!important;opacity:1!important;visibility:visible!important;overflow:visible;filter:none;transform:none!important}
+.battlefield .hero-poses.knight-five-poses image{image-rendering:auto}
+.battlefield .hero-poses.knight-five-rider[data-knight-five-rider="blood"]{filter:drop-shadow(0 0 3px #e94368)}
+.battlefield .hero-poses.knight-five-rider:not([data-knight-five-rider="blood"]){filter:drop-shadow(0 0 3px #ffdc81)}
+.knight-five-charge-tag:empty{display:none}.knight-five-charge-tag i{font-style:normal;color:#ffe19c;font-size:11px;line-height:1;display:inline-block;margin-inline:1px}
+.knight-five-rescue-tag{color:#ffe6a0;border-color:#b99854}
+@media(prefers-reduced-motion:reduce){.battlefield .hero-poses.knight-five-rider{filter:none!important}}

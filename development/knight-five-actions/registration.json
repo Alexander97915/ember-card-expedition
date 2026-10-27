@@ -1,0 +1,500 @@
+{
+  "chain": {
+    "source": "exec-ca1a8d3e-78d6-436e-84dd-7263ad89a1fb.png",
+    "sourceSha256": "2f15fa0ade6493744a7ad4358ac475d4f064dd423ecf37b8f7d2840b1c7aad73",
+    "sequenceScale": 0.8,
+    "frames": [
+      {
+        "path": "assets/knight-five-actions-v1/chain-0.webp",
+        "crop": [
+          7,
+          26,
+          585,
+          609
+        ],
+        "sourceFeet": [
+          350,
+          599
+        ],
+        "sourceEye": [
+          382,
+          116
+        ],
+        "bytes": 139860,
+        "sha256": "e2b6a8a572de6e2c314de22a661e1ffcde6b22ba990fd343a3f9bf9f4eff2064",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/chain-1.webp",
+        "crop": [
+          546,
+          56,
+          1278,
+          619
+        ],
+        "sourceFeet": [
+          900,
+          609
+        ],
+        "sourceEye": [
+          897,
+          156
+        ],
+        "bytes": 161850,
+        "sha256": "4ac4024263f49a39675f8b6ae3146849c459a9cbcfc62d23c87b187f2995fa50",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/chain-2.webp",
+        "crop": [
+          1,
+          619,
+          649,
+          1191
+        ],
+        "sourceFeet": [
+          350,
+          1181
+        ],
+        "sourceEye": [
+          393,
+          721
+        ],
+        "bytes": 173502,
+        "sha256": "dd68694501ef493dfc1845e90028e244c2d6956cb3fbf6edc5613d28c156d565",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/chain-3.webp",
+        "crop": [
+          0,
+          0,
+          1536,
+          1024
+        ],
+        "sourceFeet": [
+          860,
+          990
+        ],
+        "sourceEye": [
+          855,
+          140
+        ],
+        "bytes": 431936,
+        "sha256": "a7920da332b160b2a34e630b985ba9cfef5c42fa48a5203e836eaafedc4acb45",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "source": "exec-d3386c8a-17ee-40fe-9c91-3330255fa871.png",
+        "sourceSha256": "61e7ec3dcb470242a2d0538a87152aa42eb7583b986c43e11a823048e7fce622",
+        "scale": 0.43
+      }
+    ]
+  },
+  "retribution": {
+    "source": "exec-79b5c66b-dfae-4082-b50a-e6c8dc4305d3.png",
+    "sourceSha256": "a9c224427ce785f1db97abee068429d5b7d824758d3cb8fea4476c63d6f2b1c0",
+    "sequenceScale": 0.8,
+    "frames": [
+      {
+        "path": "assets/knight-five-actions-v1/retribution-0.webp",
+        "crop": [
+          0,
+          102,
+          642,
+          602
+        ],
+        "sourceFeet": [
+          350,
+          592
+        ],
+        "sourceEye": [
+          421,
+          186
+        ],
+        "bytes": 134312,
+        "sha256": "1381a23c2d3d81906317a460ca1c18ed9b3fde3c9eaf07f3919207465d8b57ce",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/retribution-1.webp",
+        "crop": [
+          620,
+          2,
+          1261,
+          612
+        ],
+        "sourceFeet": [
+          960,
+          601
+        ],
+        "sourceEye": [
+          985,
+          190
+        ],
+        "bytes": 171326,
+        "sha256": "6f614fca61aa009ff6e240cd7825cd6d338765541802c5c809c697725b163e60",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/retribution-2.webp",
+        "crop": [
+          0,
+          607,
+          651,
+          1187
+        ],
+        "sourceFeet": [
+          350,
+          1177
+        ],
+        "sourceEye": [
+          389,
+          731
+        ],
+        "bytes": 169510,
+        "sha256": "7c49a4deebb2ecf451ebf129cb55356a0794ce2c90949b8724598cdfada67752",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/retribution-3.webp",
+        "crop": [
+          618,
+          630,
+          1261,
+          1199
+        ],
+        "sourceFeet": [
+          970,
+          1190
+        ],
+        "sourceEye": [
+          995,
+          789
+        ],
+        "bytes": 167252,
+        "sha256": "053f94f71cc8d3fba5124a3d640e58faa924e47e1574c9f4c59cb9bf3cc1b42b",
+        "alphaRange": [
+          0,
+          255
+        ]
+      }
+    ]
+  },
+  "blood": {
+    "source": "exec-96c51889-8dd3-4fd3-88bb-70eaa5c0ed82.png",
+    "sourceSha256": "726e8e780b91eba44b82188422543094d954eb024fd3146c38e6c55865a0568f",
+    "sequenceScale": 0.84,
+    "frames": [
+      {
+        "path": "assets/knight-five-actions-v1/blood-0.webp",
+        "crop": [
+          86,
+          5,
+          712,
+          560
+        ],
+        "sourceFeet": [
+          510,
+          551
+        ],
+        "sourceEye": [
+          507,
+          93
+        ],
+        "bytes": 141972,
+        "sha256": "28cb52eee2becde07f298aa2e10a4b1279544249fab9b4f60519d4b4f5279c99",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/blood-1.webp",
+        "crop": [
+          805,
+          6,
+          1507,
+          566
+        ],
+        "sourceFeet": [
+          1230,
+          557
+        ],
+        "sourceEye": [
+          1212,
+          100
+        ],
+        "bytes": 157762,
+        "sha256": "d787c97825eca47b352630b1a54f2d5e752b90a208993cc9b4d951273125a42b",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/blood-2.webp",
+        "crop": [
+          7,
+          547,
+          756,
+          994
+        ],
+        "sourceFeet": [
+          475,
+          984
+        ],
+        "sourceEye": [
+          562,
+          642
+        ],
+        "bytes": 135942,
+        "sha256": "865e24a7ab8968468022aa0c814a238bba7f358b0fb3ada40a51b350aa316bd9",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/blood-3.webp",
+        "crop": [
+          729,
+          505,
+          1536,
+          1000
+        ],
+        "sourceFeet": [
+          1110,
+          991
+        ],
+        "sourceEye": [
+          1169,
+          658
+        ],
+        "bytes": 142342,
+        "sha256": "187c4d09041dac8456c33d3f3aed76f7ce14041b8c4f27255408defce023ed9e",
+        "alphaRange": [
+          0,
+          255
+        ]
+      }
+    ]
+  },
+  "spear": {
+    "source": "exec-e2ff6821-cc54-4a33-b426-57d2032a260a.png",
+    "sourceSha256": "4341a4d0c28aa8131d3cdbefb7928c1b3cbd2b4f558be511f58c7f5458a40440",
+    "sequenceScale": 0.84,
+    "frames": [
+      {
+        "path": "assets/knight-five-actions-v1/spear-0.webp",
+        "crop": [
+          10,
+          11,
+          648,
+          504
+        ],
+        "sourceFeet": [
+          400,
+          495
+        ],
+        "sourceEye": [
+          435,
+          106
+        ],
+        "bytes": 121452,
+        "sha256": "48eba962ca691e12aaab9bff63bdea74fb9f1eedf47f60b64c13f6f9fd19e0fa",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/spear-1.webp",
+        "crop": [
+          713,
+          12,
+          1533,
+          506
+        ],
+        "sourceFeet": [
+          1190,
+          497
+        ],
+        "sourceEye": [
+          1131,
+          110
+        ],
+        "bytes": 142316,
+        "sha256": "8116b73d8f5fc0cc1f22492fa394ec59462e583861613736a74eb3221b352790",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/spear-2.webp",
+        "crop": [
+          0,
+          520,
+          745,
+          986
+        ],
+        "sourceFeet": [
+          380,
+          977
+        ],
+        "sourceEye": [
+          414,
+          613
+        ],
+        "bytes": 135278,
+        "sha256": "540e3edfd5294896015c23d6bc7f82d3fd5cd889c0fece1a9c2ad3b36bf19932",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/spear-3.webp",
+        "crop": [
+          725,
+          542,
+          1536,
+          982
+        ],
+        "sourceFeet": [
+          1120,
+          977
+        ],
+        "sourceEye": [
+          1096,
+          627
+        ],
+        "bytes": 141666,
+        "sha256": "a550d2fc4169589ea768111ac01e9e2c7926264430e63c9507d0717b6105224f",
+        "alphaRange": [
+          0,
+          255
+        ]
+      }
+    ]
+  },
+  "seal": {
+    "source": "exec-52dde630-2c5e-4806-a36b-c84c14e9f793.png",
+    "sourceSha256": "f02134c79f2247736001d964772868481c0baca5d908ae57117359c0bf99b798",
+    "sequenceScale": 0.88,
+    "frames": [
+      {
+        "path": "assets/knight-five-actions-v1/seal-0.webp",
+        "crop": [
+          46,
+          4,
+          649,
+          522
+        ],
+        "sourceFeet": [
+          440,
+          507
+        ],
+        "sourceEye": [
+          424,
+          84
+        ],
+        "bytes": 115850,
+        "sha256": "d7326fa8d94a551038cb5e723cbeb6dd850765758b29c6006854afa1f85783d5",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/seal-1.webp",
+        "crop": [
+          736,
+          0,
+          1504,
+          522
+        ],
+        "sourceFeet": [
+          1110,
+          507
+        ],
+        "sourceEye": [
+          1082,
+          82
+        ],
+        "bytes": 181892,
+        "sha256": "5e8a2e4a029a625698cfd963a78a683315218928bae35415af5dba30427aa0f5",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/seal-2.webp",
+        "crop": [
+          7,
+          502,
+          751,
+          1013
+        ],
+        "sourceFeet": [
+          430,
+          1003
+        ],
+        "sourceEye": [
+          401,
+          591
+        ],
+        "bytes": 181002,
+        "sha256": "7ae8cf71027273174f1427ecd77607f2a6e7eedff40f83021c998df6dbcaa403",
+        "alphaRange": [
+          0,
+          255
+        ]
+      },
+      {
+        "path": "assets/knight-five-actions-v1/seal-3.webp",
+        "crop": [
+          732,
+          487,
+          1534,
+          1012
+        ],
+        "sourceFeet": [
+          1100,
+          1002
+        ],
+        "sourceEye": [
+          1108,
+          607
+        ],
+        "bytes": 210016,
+        "sha256": "a105b7a7d3da7c05fdb9769fccffe4a603cc1aa0157a6c2be9e5110a2e729f3f",
+        "alphaRange": [
+          0,
+          255
+        ]
+      }
+    ]
+  }
+}

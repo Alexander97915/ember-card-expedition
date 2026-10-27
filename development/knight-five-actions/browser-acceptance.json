@@ -1,0 +1,17 @@
+{
+  "desktop": true,
+  "fiveActions": true,
+  "cels": 20,
+  "allTwentySingleVisible": true,
+  "transparentBackground": true,
+  "currentKnightDesign": true,
+  "heldShieldRedemption": true,
+  "largeBarrierOnlyOnRescue": true,
+  "allFeetAnchor": [
+    209,
+    430
+  ],
+  "nativeResolutionPreserved": true,
+  "unchangedCombatReplay": true,
+  "mountedAngelBodiesPreserved": true
+}
