@@ -21,7 +21,11 @@
  const actor=actorState;actorState=function(p){return p.id===5&&selState().charge?'cast':actor(p)};
  const frames=spriteFrames;spriteFrames=function(id,state){return id===5?swordsmanFrames(state):frames(id,state)};
  // Preserve the shared feet-anchored canvas; Selena has four cels in every action.
- const sprite=heroSpriteHTML;heroSpriteHTML=function(id,state,...args){const html=sprite(id,state,...args);return id===5?html.replace('class="hero-poses ','class="hero-poses selena-poses '):html};
+ let poseTrack=null;
+ function poseFrame(state){const battle=s?.auto,now=s?.phase==='battle'?selNow():Date.now();if(state==='idle'||state==='walk')return Math.floor(now/(state==='idle'?400:180))%4;const motion=sceneMotion;if(!poseTrack||poseTrack.battle!==battle||poseTrack.state!==state||poseTrack.motion!==motion)poseTrack={battle,state,motion,started:now};return Math.min(3,Math.floor(Math.max(0,now-poseTrack.started)/(state==='fallen'?300:100)))}
+ const guardFrames=heroGuardFrames;heroGuardFrames=function(id){return id===5?swordsmanFrames('guard'):guardFrames(id)};
+ const sprite=heroSpriteHTML;heroSpriteHTML=function(id,state,...args){const html=sprite(id,state,...args);return id===5?html.replace('class="hero-poses ',`data-selena-state="${state}" data-selena-frame="${poseFrame(state)}" class="hero-poses selena-poses `):html};
+ const hudUpdate=updateAutoHUD;updateAutoHUD=function(...args){const result=hudUpdate(...args);const node=document.querySelector('.selena-poses');if(node)node.dataset.selenaFrame=String(poseFrame(node.dataset.selenaState));return result};
  const resource=resourceHUD;resourceHUD=function(p,...args){if(p.id!==5)return resource(p,...args);const count=(s?.auto?.skills?.[5]?.basicCount||0)%3;return '<div class="class-resource" aria-label="灰誓劍術：每第三次普攻追加追斬">灰誓劍術 · '+count+'/3 · 第三擊追斬</div>'};
  const head=headshotHTML;headshotHTML=function(id,...args){return id===5?'<img src="assets/swordsman-v1/idle-0.webp" alt="瑟琳娜" style="width:100%;height:100%;object-fit:cover;object-position:50% 12%">':head(id,...args)};
  swordsmanRecruitPreviewHTML=function(){return ''};
