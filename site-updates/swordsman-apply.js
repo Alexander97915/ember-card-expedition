@@ -20,7 +20,8 @@
  const gauge=actorActionGaugeState;actorActionGaugeState=function(p){const c=p.id===5&&selState().charge;if(c)return {mode:'charging',progress:clampGaugeProgress((selNow()-c.started)/5000),label:'蓄力 · '+C[c.key].name+' · '+Math.max(0,(c.due-selNow())/1000).toFixed(1)+'秒'};return gauge(p)};
  const actor=actorState;actorState=function(p){return p.id===5&&selState().charge?'cast':actor(p)};
  const frames=spriteFrames;spriteFrames=function(id,state){return id===5?swordsmanFrames(state):frames(id,state)};
- // Selena uses the shared hero-poses renderer and its feet-anchored animation canvas.
+ // Preserve the shared feet-anchored canvas; Selena has four cels in every action.
+ const sprite=heroSpriteHTML;heroSpriteHTML=function(id,state,...args){const html=sprite(id,state,...args);return id===5?html.replace('class="hero-poses ','class="hero-poses selena-poses '):html};
  const resource=resourceHUD;resourceHUD=function(p,...args){if(p.id!==5)return resource(p,...args);const count=(s?.auto?.skills?.[5]?.basicCount||0)%3;return '<div class="class-resource" aria-label="灰誓劍術：每第三次普攻追加追斬">灰誓劍術 · '+count+'/3 · 第三擊追斬</div>'};
  const head=headshotHTML;headshotHTML=function(id,...args){return id===5?'<img src="assets/swordsman-v1/idle-0.webp" alt="瑟琳娜" style="width:100%;height:100%;object-fit:cover;object-position:50% 12%">':head(id,...args)};
  swordsmanRecruitPreviewHTML=function(){return ''};

@@ -14,8 +14,8 @@
     },
     {
       "path": "swordsman-apply.js",
-      "bytes": 6290,
-      "sha256": "4816c521cd27e5da8d556e3c515e1b3fd63118d7837eec844fd5d5ae5f54a498"
+      "bytes": 6484,
+      "sha256": "b7b639d422ae5198b3dafd3bfa61f733ed1f0fa911a225796c6ca6665b876a49"
     },
     {
       "path": "game-encyclopedia.js",
@@ -64,8 +64,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 23028,
-      "sha256": "f2a7ec18b94219185587fff2548ac4dab5971f3204814102d75fe13b22e45f5e"
+      "bytes": 23039,
+      "sha256": "bd05b85d557ee9b30e309fe2f51a8c453c23d7866df938f91dab1ad02bc7686f"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -74,8 +74,8 @@
     },
     {
       "path": "swordsman-v1.css",
-      "bytes": 2543,
-      "sha256": "c71882ca53dcb8a901965b265984c26fcd7dea618bd8562d7c9bcea586636de3"
+      "bytes": 3376,
+      "sha256": "c968c6aef5111442d76de3f8d11cee4e49dde118d51b57ab5c08b2534d238c57"
     },
     {
       "path": "assets/swordsman-idle-cloth-v3/idle-1.webp",
@@ -209,7 +209,7 @@
     }
   ],
   "siteFileCount": 1374,
-  "siteBytes": 278815197,
+  "siteBytes": 278816235,
   "actions": [
     "idle",
     "attack",
