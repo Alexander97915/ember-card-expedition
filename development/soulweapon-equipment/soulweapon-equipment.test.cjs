@@ -1,0 +1,31 @@
+'use strict';
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const harness="const vm=require('node:vm'),fs=require('node:fs'),assert=require('node:assert/strict');\nconst code=[...fs.readFileSync('dist/index.html','utf8').matchAll(/<script src=\"([^\"]+)\"/g)].map(m=>fs.readFileSync('dist/'+m[1].split('?')[0],'utf8')).join('\\n');\nfunction world(stored={}){let now=0,id=0,timers=new Map(),elements={};const ctx={console,Math:Object.create(Math),Date:class extends Date{static now(){return now}},setTimeout(fn,ms){timers.set(++id,{fn,at:now+ms});return id},clearTimeout(i){timers.delete(i)},matchMedia(){return {matches:true}},localStorage:{getItem(k){return stored[k]||null},setItem(k,v){stored[k]=v}},document:{hidden:false,getElementById(k){return elements[k]??={style:{},innerHTML:'',textContent:'',hidden:false,open:false,dataset:{},showModal(){this.open=true}}},querySelector(selector){if(selector==='.selena-poses')return null;return {close(){if(elements.modal)elements.modal.open=false}}}}};ctx.Math.random=()=>.99;vm.createContext(ctx);vm.runInContext(code,ctx);return {ctx,stored,timers,run(c){return vm.runInContext(c,ctx)},tick(ms){let target=now+ms,guard=0;while(true){let entries=[...timers].filter(([,v])=>v.at<=target).sort((a,b)=>a[1].at-b[1].at);if(!entries.length)break;let [i,t]=entries[0];timers.delete(i);now=t.at;t.fn();if(++guard>100000)throw Error('timer loop')}now=target}}}\n\n" ,scope={require,console};
+vm.runInNewContext(harness+'globalThis.makeWorld=world;',scope);
+let w=scope.makeWorld(),r=c=>w.run(c);
+
+assert(r("!C.soulweapon&&!CLASS_SKILLS[0].includes('soulweapon')"));
+assert(r("GEAR.soulAxe.owner===0&&GEAR.soulAxe.slot==='weapon'&&GEAR.soulAxe.rarity==='epic'"));
+assert(r("Object.values(GEAR_LINKS).every(a=>a.every(k=>C[k]))&&BUILDS.every(b=>b.cards.every(k=>C[k]))"));
+r("newRun([0,1,2]);s.phase='map';initEquipment(s)");assert(r('!s.equipment.bag.some(g=>g.key==="soulAxe")'),'new runs do not receive a free axe');
+// Owned legacy skill converts before validation without losing any combat piles.
+r("startBattle('戰鬥',false);clearFX();delete s.soulweaponEquipmentRevision;s.deck=['soulweapon','soulweapon'];s.collection=[...s.deck];s.hand=['soulweapon'];s.draw=['soulweapon'];s.discard=[];s.party[slotOf(0)].soulAttack=4;abilityState(0).soulweapon=true;abilityState(0).soulLeechStacks=3;abilityState(0).soulLeechUntil=999999;save()");
+w=scope.makeWorld({...w.stored});r=c=>w.run(c);
+assert.equal(r('s.phase'),'battle');assert.equal(r("s.deck.filter(k=>k==='heavy').length"),2);assert.equal(r("s.equipment.bag.filter(g=>g.key==='soulAxe').length"),1);
+assert.equal(r("gearItems(0).some(g=>g.effect==='soulHarvest')"),false,'migration preserves currently equipped weapon');
+assert.equal(r('s.party[slotOf(0)].soulAttack'),4);assert(r('!abilityState(0).soulweapon&&!abilityState(0).soulLeechStacks'));
+r('initFixedDeck(s);initFixedDeck(s)');assert.equal(r("s.equipment.bag.filter(g=>g.key==='soulAxe').length"),1);
+r("s.equipment.loadout[0].weapon=s.equipment.bag.find(g=>g.key==='soulAxe').uid;s.auto.paused=false;$('modal').open=false");
+assert.equal(r("warriorBasicLeech(0,{basic:true})"),.1);assert.equal(r("warriorBasicLeech(0,{basic:false})"),0);assert.equal(r("warriorBasicLeech(1,{basic:true})"),0);assert.equal(r("warriorBasicLeech(0,{basic:true,skipLeech:true})"),0);
+assert.equal(r("warriorAttackValue(0,'slash',10)"),14);
+const death=flags=>r(`warriorEnemyDeath({hp:0,status:{},warriorHitAt:s.auto.clock,${flags}})`);
+death('');assert.equal(r('s.party[slotOf(0)].soulAttack'),5);
+death('warriorNoSoul:true');death('trainingDummy:true');assert.equal(r('s.party[slotOf(0)].soulAttack'),5);
+r('s.auto.clock+=6000');r('warriorEnemyDeath({hp:0,status:{},warriorHitAt:s.auto.clock-6000})');assert.equal(r('s.party[slotOf(0)].soulAttack'),5);
+for(let n=0;n<15;n++)death('');assert.equal(r('abilityState(0).soulsThisBattle'),10);assert.equal(r('s.party[slotOf(0)].soulAttack'),14);
+r('s.equipment.loadout[0].weapon=null');assert.equal(r("warriorAttackValue(0,'slash',10)"),10);assert.equal(r('warriorBasicLeech(0,{basic:true})'),0);death('');assert.equal(r('s.party[slotOf(0)].soulAttack'),14);
+r("s.equipment.loadout[0].weapon=s.equipment.bag.find(g=>g.key==='soulAxe').uid;startBattle('戰鬥',false);clearFX()");assert.equal(r('s.party[slotOf(0)].soulAttack'),14);assert.equal(r('abilityState(0).soulsThisBattle||0'),0);death('');assert.equal(r('s.party[slotOf(0)].soulAttack'),15);
+r("showSkillBook(0)");assert(!r('$("modalbody").innerHTML').includes('噬魂武器'));
+assert(r("eligibleGearPool().includes('soulAxe')"));assert(r("gearCard({key:'soulAxe'}).includes('噬魂戰斧')"));assert(r("sanitizeTrainingConfig({roster:[0,1,2],gear:{0:{weapon:'soulAxe'}}}).gear[0].weapon==='soulAxe'"));
+r('save()');w=scope.makeWorld({...w.stored});r=c=>w.run(c);assert.equal(r('s.party[slotOf(0)].soulAttack'),15);assert(r("hasGearEffect(0,'soulHarvest')"));assert.equal(r("s.equipment.bag.filter(g=>g.key==='soulAxe').length"),1);
+console.log('PASS soul axe registration, drop pool, training, codex, legacy battle reload, conversion idempotence, soul cap/exclusions, leech, equip/unequip, encounter and reload persistence');

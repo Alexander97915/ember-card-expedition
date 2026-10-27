@@ -16,7 +16,7 @@ registerPriest();
 registerSwordsmanAnimations();
 registerSwordsmanSkills();
 registerSpellCasting();
-const RETIRED_CLASS_SKILLS=Object.freeze({manabarrier:'rockarmor',stoneskin:'rockwall',knightprayer:'knightredemption',priestbless:'priestinfuse',sel_focus:'sel_counter'});
+const RETIRED_CLASS_SKILLS=Object.freeze({soulweapon:'heavy',manabarrier:'rockarmor',stoneskin:'rockwall',knightprayer:'knightredemption',priestbless:'priestinfuse',sel_focus:'sel_counter'});
 restrictClassCards();if(typeof registerGearBalance==='function')registerGearBalance();
 function restrictClassCards(){
  for(let id=0;id<CLASS_SKILLS.length;id++)CLASS_SKILLS[id]=CLASS_SKILLS[id].filter(k=>!Object.hasOwn(RETIRED_CLASS_SKILLS,k));
@@ -111,6 +111,7 @@ const DEFAULT_CLASS_DECKS=CLASS_SKILLS;
 function rollStarterCards(id){const pool=CLASS_SKILLS[id];return [...shuffle(pool.filter(k=>C[k].rarity==='common')).slice(0,2),...shuffle(pool.filter(k=>C[k].rarity==='uncommon')).slice(0,1)]}
 // Keep owned-card counts and in-flight piles when retiring redundant skills.
 function migrateRetiredClassSkills(t){
+ migrateSoulweaponEquipment(t);
  const replace=k=>RETIRED_CLASS_SKILLS[k]||k;
  for(const field of ['deck','collection','hand','draw','discard','rewards'])if(Array.isArray(t[field]))t[field]=t[field].map(replace);
  if(Array.isArray(t.cardShop?.keys))t.cardShop.keys=[...new Set(t.cardShop.keys.map(replace))];

@@ -49,8 +49,8 @@
     },
     {
       "path": "game.js",
-      "bytes": 68753,
-      "sha256": "ce89b2786bf9c51ff59ed33172fd18faac929e8986115c91b4bba86c1098cb91"
+      "bytes": 68804,
+      "sha256": "5d35bbb72e7b5db4cb582edd572137f37e6838f7441c876724fcde4f7747d993"
     },
     {
       "path": "swordsman-frames-v1.js",
@@ -65,7 +65,7 @@
     {
       "path": "index.html",
       "bytes": 23025,
-      "sha256": "3f9225ebf5d6f8ae6d568e251d287084fa2efd0ddfefe52c40a05bf1624c7677"
+      "sha256": "c0fd5cd390601a6887ce7c9cb77778843d8d0748c6c13c24bd37f3c02d88ff75"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -206,10 +206,15 @@
       "path": "assets/swordsman-actions-v2/walk-3.webp",
       "bytes": 386382,
       "sha256": "171f1d0118f087efffd096e40b95176f503c722770c15c7218a0d8cc0d705b56"
+    },
+    {
+      "path": "warrior.js",
+      "bytes": 32011,
+      "sha256": "a46ad1f7763d58a146125aad25125a1fc1858fcc81628766de42d5132b6b3812"
     }
   ],
   "siteFileCount": 1374,
-  "siteBytes": 278818333,
+  "siteBytes": 278819163,
   "actions": [
     "idle",
     "attack",
