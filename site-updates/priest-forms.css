@@ -1,0 +1,3 @@
+.battle-actor[data-hero="4"] .hero-poses.priest-form-poses{transform:none!important;animation:none!important}
+.battle-actor[data-hero="4"] .priest-form-poses>.hero-cel{opacity:1!important;animation:none!important;image-rendering:auto!important}
+.priest-form-tag{color:#f5dfb5}.priest-form-poses[data-priest-form="funeral"]{filter:drop-shadow(0 3px 3px #0007)}
