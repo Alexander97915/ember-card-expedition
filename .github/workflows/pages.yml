@@ -44,6 +44,8 @@ jobs:
         run: python3 .github/scripts/apply-site-updates.py
       - name: Verify P0 startup, animation and save recovery
         run: EMBER_TEST_DIST=site node development/p0-save-recovery/p0.test.cjs
+      - name: Verify P1 combat scheduling and control effects
+        run: EMBER_TEST_DIST=site node development/p1-combat/p1.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
