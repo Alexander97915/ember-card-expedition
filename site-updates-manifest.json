@@ -49,8 +49,8 @@
     },
     {
       "path": "game.js",
-      "bytes": 68888,
-      "sha256": "a63f0328cbfa8df65d09ea8b8e1acf58f4801b8a9140e41c1e8952fe99e8c3ac"
+      "bytes": 68514,
+      "sha256": "c3d2488b56b597205d739cbdb2e8a4fff2ec990f9868f3813e214627245604b0"
     },
     {
       "path": "swordsman-frames-v1.js",
@@ -59,13 +59,13 @@
     },
     {
       "path": "newcomer-tutorial.js",
-      "bytes": 10621,
-      "sha256": "a00314813d3b0329aa861e24bbcda07ad18af770fd527954bd2f5c7443d7df3a"
+      "bytes": 10695,
+      "sha256": "6e8d24ba621b76e835639cb26a2b7ece751686b4d1d40db87713454c08c602c2"
     },
     {
       "path": "index.html",
-      "bytes": 23621,
-      "sha256": "3222a413d8e66b4ca295beef1dda5e9ccc9273712ef01af5ce80853c477a66f3"
+      "bytes": 23676,
+      "sha256": "a268e9cd914fa5e982e1a427106ad0a739a3b25a6a44e44c5a269b3cf9e99064"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -404,8 +404,8 @@
     },
     {
       "path": "priest-run-v2.js",
-      "bytes": 4154,
-      "sha256": "8afa219933d374a26c22c09da28e3c9c82a2c7d9994686ad1617b43c5709ed7d"
+      "bytes": 4166,
+      "sha256": "553d545e7938e13484b51c59bbde206231efdf7cb49bfe86888f445405fdae45"
     },
     {
       "path": "assets/priest-run-v2/run-0.webp",
@@ -426,10 +426,15 @@
       "path": "assets/priest-run-v2/run-3.webp",
       "bytes": 131430,
       "sha256": "3e3d966e3e589e4a62fea9427ed0a30310718d159959ec9922257c7963866511"
+    },
+    {
+      "path": "save-recovery.js",
+      "bytes": 6144,
+      "sha256": "f902a69a3de49d9bad898e43292b4b38831bf6e006b7880c58fa9497d5fbdaf5"
     }
   ],
-  "siteFileCount": 1414,
-  "siteBytes": 291363145,
+  "siteFileCount": 1415,
+  "siteBytes": 291369056,
   "actions": [
     "idle",
     "attack",
