@@ -16,6 +16,7 @@ registerPriest();
 registerSwordsmanAnimations();
 registerSwordsmanSkills();
 registerSpellCasting();
+registerSupportEquipment();
 const RETIRED_CLASS_SKILLS=Object.freeze({soulweapon:'heavy',manabarrier:'rockarmor',stoneskin:'rockwall',knightprayer:'knightredemption',priestbless:'priestinfuse',sel_focus:'sel_counter'});
 restrictClassCards();if(typeof registerGearBalance==='function')registerGearBalance();
 function restrictClassCards(){
@@ -58,7 +59,7 @@ function slotOf(id){return s.party.findIndex(p=>p.id===id)}
 function inParty(id){return slotOf(id)>=0}
 function cardPool(){return Object.keys(C).filter(k=>k!=='pair'&&inParty(C[k].owner))}
 function giftKey(){return HEROES[s.party[s.party.length-1].id].gift}
-function newRun(ids,regional=false){if(typeof abandonExpeditionMetrics==='function')abandonExpeditionMetrics();clearFX();let ready=validRoster(ids),picks=sortHeroPositions(ready?ids:[0,1,2]);s={version:3,liaHealthRevision:1,knightHealthRevision:1,campaignRevision:CAMPAIGN_REVISION,combatRevision:1,picks,party:picks.map(id=>({id,hp:HEROES[id].max,max:HEROES[id].max,block:0})),gold:0,floor:0,phase:ready?'map':'recruit',deck:picks.flatMap(id=>rollStarterCards(id)),collection:[],deckRevision:3,skillRevision:1,relic:0,bond:0,pairUnlocked:false,selected:0,discoveries:{}};if(regional&&typeof initRegionExpedition==='function')initRegionExpedition(s);migrateClassSkills(s);initFixedDeck(s);messages=[];log(ready?picks.map(i=>HEROES[i].name).join('、')+'集結。羈絆遠征開始。':'三名冒險者，等待你的召集。選擇三人出發！');render()}
+function newRun(ids,regional=false){if(typeof abandonExpeditionMetrics==='function')abandonExpeditionMetrics();clearFX();let ready=validRoster(ids),picks=sortHeroPositions(ready?ids:[0,1,2]);s={version:3,supportEquipmentRevision:1,liaHealthRevision:1,knightHealthRevision:1,campaignRevision:CAMPAIGN_REVISION,combatRevision:1,picks,party:picks.map(id=>({id,hp:HEROES[id].max,max:HEROES[id].max,block:0})),gold:0,floor:0,phase:ready?'map':'recruit',deck:picks.flatMap(id=>rollStarterCards(id)),collection:[],deckRevision:3,skillRevision:1,relic:0,bond:0,pairUnlocked:false,selected:0,discoveries:{}};if(regional&&typeof initRegionExpedition==='function')initRegionExpedition(s);migrateClassSkills(s);initFixedDeck(s);messages=[];log(ready?picks.map(i=>HEROES[i].name).join('、')+'集結。羈絆遠征開始。':'三名冒險者，等待你的召集。選擇三人出發！');render()}
 function toggleRecruit(id){if(s.phase!=='recruit'||!HEROES[id])return;let index=s.picks.indexOf(id);if(index>=0)s.picks.splice(index,1);else if(s.picks.length<3)s.picks.push(id);else return;s.picks=sortHeroPositions(s.picks);s.party=s.picks.map(id=>({id,hp:HEROES[id].max,max:HEROES[id].max,block:0}));s.deck=s.picks.flatMap(id=>rollStarterCards(id));s.selected=0;s.deckRevision=3;s.collection=[];s.skillRevision=1;migrateClassSkills(s);initFixedDeck(s);render()}
 function launchParty(){if(s.phase!=='recruit'||!validRoster(s.picks))return;newRun([...s.picks],s.expeditionMode!=='classic')}
 const CHARACTER_ART=['assets/character-art/kohaku-scene-v1.webp','assets/character-art/sou-scene-v1.webp','assets/character-art/lia-scene-v1.webp','assets/knight/art-v6/alicia-lakeside.webp','assets/priest-complete-v41/base-idle-0.avif'];
@@ -112,6 +113,7 @@ function rollStarterCards(id){const pool=CLASS_SKILLS[id];return [...shuffle(poo
 // Keep owned-card counts and in-flight piles when retiring redundant skills.
 function migrateRetiredClassSkills(t){
  migrateSoulweaponEquipment(t);
+ migrateSupportEquipment(t);
  const replace=k=>RETIRED_CLASS_SKILLS[k]||k;
  for(const field of ['deck','collection','hand','draw','discard','rewards'])if(Array.isArray(t[field]))t[field]=t[field].map(replace);
  if(Array.isArray(t.cardShop?.keys))t.cardShop.keys=[...new Set(t.cardShop.keys.map(replace))];

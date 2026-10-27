@@ -32,7 +32,7 @@ function selResolve(c,origin){
  else if(k==='counter')st.counterUntil=now+2000;
  else if(k==='step'){st.stepUntil=now+1000;st.stepAmpUntil=now+4000}
  else if(k==='focus')st.focus=true;
- else if(['charge','quake'].includes(k)&&!c.selComplete){const shield=st.focus?Math.ceil(p.max*.25):0;delete st.focus;p.block+=shield;st.charge={key:c.key,started:now,due:now+5000,enemyId:s.enemy.id,shield};}
+ else if(['charge','quake'].includes(k)&&!c.selComplete){const shield=st.focus||hasGearEffect(5,'steelFocus')?Math.ceil(p.max*.25):0;delete st.focus;p.block+=shield;st.charge={key:c.key,started:now,due:now+5000,enemyId:s.enemy.id,shield};}
  else {
   if(['fire','ice','thunder'].includes(k))st.element=k;
   const targets=['sweep','quake','moon','all'].includes(k)?[...livingEnemies()]:k==='thunder'?[s.enemy,...livingEnemies().filter(e=>e.id!==s.enemy.id)].slice(0,3):[s.enemy];

@@ -34,8 +34,8 @@
     },
     {
       "path": "swordsman-skills.js",
-      "bytes": 8031,
-      "sha256": "8b7ff0ce04d8a63c75f5ed1017c53ec08798ca415469fb6659681aea87d844fc"
+      "bytes": 8062,
+      "sha256": "16b4760ff621a284ad5a5f751a8eff84fd547adcfaba04b7b4f2ae74f32fc3c7"
     },
     {
       "path": "abilities.js",
@@ -49,8 +49,8 @@
     },
     {
       "path": "game.js",
-      "bytes": 68804,
-      "sha256": "5d35bbb72e7b5db4cb582edd572137f37e6838f7441c876724fcde4f7747d993"
+      "bytes": 68888,
+      "sha256": "a63f0328cbfa8df65d09ea8b8e1acf58f4801b8a9140e41c1e8952fe99e8c3ac"
     },
     {
       "path": "swordsman-frames-v1.js",
@@ -64,8 +64,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 23025,
-      "sha256": "c0fd5cd390601a6887ce7c9cb77778843d8d0748c6c13c24bd37f3c02d88ff75"
+      "bytes": 23084,
+      "sha256": "e3be6c227ca4bde9b62cf9dd9b606198e620feb88a0fcb1c894a315e56370a69"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -211,10 +211,25 @@
       "path": "warrior.js",
       "bytes": 32011,
       "sha256": "a46ad1f7763d58a146125aad25125a1fc1858fcc81628766de42d5132b6b3812"
+    },
+    {
+      "path": "support-equipment.js",
+      "bytes": 3214,
+      "sha256": "05edf0e8fdde379a17fe7257f6c90b0469a1e492639a91e445ee1075b561ac79"
+    },
+    {
+      "path": "earth-magic.js",
+      "bytes": 10352,
+      "sha256": "335bdb0d526b48ac658613a226cbe403d370633ead460b223d0816ac17885330"
+    },
+    {
+      "path": "monsters.js",
+      "bytes": 30832,
+      "sha256": "194f02764bb882b87df9f3c7cd7e3b0b9bfde3baac294266087c8cd72d2866f0"
     }
   ],
-  "siteFileCount": 1374,
-  "siteBytes": 278819163,
+  "siteFileCount": 1375,
+  "siteBytes": 278823015,
   "actions": [
     "idle",
     "attack",
