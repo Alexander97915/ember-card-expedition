@@ -9,7 +9,7 @@ assert(r('CLASS_SKILLS.every((a,id)=>a.every(k=>C[k]?.owner===id))'));
 for(let id=0;id<6;id++)for(let n=0;n<10;n++){assert.equal(r(`rollStarterCards(${id}).length`),3);assert(r(`rollStarterCards(${id}).every(k=>C[k]?.owner===${id})`));}
 for(const ids of ['[0,1,2]','[3,4,5]']){r(`newRun(${ids});startBattle('戰鬥',false);clearFX();s.auto.paused=false;`);assert.equal(r('s.deck.length'),9);assert(r('cardPool().every(k=>C[k])'));r('render();save()');w=scope.makeWorld({...w.stored});r=c=>w.run(c);assert.equal(r('s.phase'),'battle');}
 // Old saves retain card multiplicity, all combat piles, event offers and shop entries.
-r(`newRun([3,4,5]);startBattle('戰鬥',false);clearFX();s.deck=['knightprayer','priestbless','sel_focus'];s.collection=[...s.deck];s.hand=[...s.deck];s.draw=[...s.deck];s.discard=[...s.deck];s.rewards=[...s.deck];s.cardShop={floor:s.floor,keys:[...s.deck]};s.eventEncounter={offers:[...s.deck],picks:[[...s.deck]]};save()`);
+r(`newRun([3,4,5]);startBattle('戰鬥',false);clearFX();s.deck=['knightprayer','priestbless','sel_focus'];s.collection=[...s.deck];s.hand=[...s.deck];s.draw=[...s.deck];s.discard=[...s.deck];s.rewards=[...s.deck];s.cardShop={floor:s.floor,keys:[...s.deck]};s.eventEncounter={offers:[...s.deck],picks:[[...s.deck]]};localStorage.setItem('ember-v3',JSON.stringify({version:3,s,messages}))`);
 w=scope.makeWorld({...w.stored});r=c=>w.run(c);
 for(const field of ['deck','collection','hand','draw','discard','rewards']){assert(r(`s.${field}.every(k=>C[k])`));assert(r(`s.${field}.includes('knightredemption')&&s.${field}.includes('priestinfuse')&&s.${field}.includes('sel_counter')`));}
 assert(r('s.cardShop.keys.every(k=>C[k])&&s.eventEncounter.offers.every(k=>C[k])&&s.eventEncounter.picks.flat().every(k=>C[k])'));

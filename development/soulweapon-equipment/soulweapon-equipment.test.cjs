@@ -9,7 +9,7 @@ assert(r("GEAR.soulAxe.owner===0&&GEAR.soulAxe.slot==='weapon'&&GEAR.soulAxe.rar
 assert(r("Object.values(GEAR_LINKS).every(a=>a.every(k=>C[k]))&&BUILDS.every(b=>b.cards.every(k=>C[k]))"));
 r("newRun([0,1,2]);s.phase='map';initEquipment(s)");assert(r('!s.equipment.bag.some(g=>g.key==="soulAxe")'),'new runs do not receive a free axe');
 // Owned legacy skill converts before validation without losing any combat piles.
-r("startBattle('戰鬥',false);clearFX();delete s.soulweaponEquipmentRevision;s.deck=['soulweapon','soulweapon'];s.collection=[...s.deck];s.hand=['soulweapon'];s.draw=['soulweapon'];s.discard=[];s.party[slotOf(0)].soulAttack=4;abilityState(0).soulweapon=true;abilityState(0).soulLeechStacks=3;abilityState(0).soulLeechUntil=999999;save()");
+r("startBattle('戰鬥',false);clearFX();delete s.soulweaponEquipmentRevision;s.deck=['soulweapon','soulweapon'];s.collection=[...s.deck];s.hand=['soulweapon'];s.draw=['soulweapon'];s.discard=[];s.party[slotOf(0)].soulAttack=4;abilityState(0).soulweapon=true;abilityState(0).soulLeechStacks=3;abilityState(0).soulLeechUntil=999999;localStorage.setItem('ember-v3',JSON.stringify({version:3,s,messages}))");
 w=scope.makeWorld({...w.stored});r=c=>w.run(c);
 assert.equal(r('s.phase'),'battle');assert.equal(r("s.deck.filter(k=>k==='heavy').length"),2);assert.equal(r("s.equipment.bag.filter(g=>g.key==='soulAxe').length"),1);
 assert.equal(r("gearItems(0).some(g=>g.effect==='soulHarvest')"),false,'migration preserves currently equipped weapon');

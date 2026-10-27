@@ -24,6 +24,7 @@ function writeNewcomerRecord(status,step=0){
  try{localStorage.setItem(NEWCOMER_TUTORIAL_KEY,JSON.stringify(record))}catch{}
 }
 function initNewcomerTutorial(){
+ if(typeof saveRecoveryPending!=='undefined'&&saveRecoveryPending)return;
  if(!newcomerVisit.available)return;
  const record=newcomerVisit.record;
  if(record?.status==='active'){startNewcomerTutorial(false,record.step);return}
