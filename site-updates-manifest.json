@@ -65,7 +65,7 @@
     {
       "path": "index.html",
       "bytes": 23676,
-      "sha256": "a268e9cd914fa5e982e1a427106ad0a739a3b25a6a44e44c5a269b3cf9e99064"
+      "sha256": "20e2407843b33d555453f9fa242fe19917d174b3a76971665d8a683063fa9239"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -224,8 +224,8 @@
     },
     {
       "path": "monsters.js",
-      "bytes": 30832,
-      "sha256": "194f02764bb882b87df9f3c7cd7e3b0b9bfde3baac294266087c8cd72d2866f0"
+      "bytes": 30869,
+      "sha256": "8364a2de175680e9588786c0050e8ff3cdb380d4d70d4f73687084782b8a0b5d"
     },
     {
       "path": "knight-five-actions.js",
@@ -431,10 +431,20 @@
       "path": "save-recovery.js",
       "bytes": 6144,
       "sha256": "f902a69a3de49d9bad898e43292b4b38831bf6e006b7880c58fa9497d5fbdaf5"
+    },
+    {
+      "path": "battle-depth.js",
+      "bytes": 10230,
+      "sha256": "b9721f802616b24e87776ff4eea8b31b2d967a0886ed529865e8f40b9edf4dca"
+    },
+    {
+      "path": "combat.js",
+      "bytes": 34805,
+      "sha256": "e1d248626d4d58cb5b7d1bc4c534f1845426eba0bbedd4e2b4fb57ead63581db"
     }
   ],
   "siteFileCount": 1415,
-  "siteBytes": 291369056,
+  "siteBytes": 291369222,
   "actions": [
     "idle",
     "attack",
