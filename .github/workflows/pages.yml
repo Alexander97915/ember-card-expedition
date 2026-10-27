@@ -2,9 +2,7 @@ name: Deploy Ember to GitHub Pages
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/pages.yml']
-  release:
-    types: [published]
+    paths: ['.github/workflows/pages.yml', 'deployment.json']
   workflow_dispatch:
 permissions:
   contents: read
@@ -23,14 +21,25 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
     steps:
-      - name: Download verified game release
+      - uses: actions/checkout@v6
+      - name: Download and verify selected release
         run: |
-          gh release download v387 --pattern ember-site-v387.tar.gz
-          echo "360c7a271b9c3d259084d04736fe890ee12dac48d83f141c9bf2a8bcde8a9c8c  ember-site-v387.tar.gz" | sha256sum --check
-          mkdir site
-          tar -xzf ember-site-v387.tar.gz -C site
-          test -f site/index.html
-          test -f site/save-transfer.html
+          python3 - <<'PY'
+          import hashlib,json,subprocess,tarfile
+          from pathlib import Path
+          config=json.loads(Path('deployment.json').read_text())
+          asset=config['asset']
+          assert Path(asset).name==asset
+          subprocess.run(['gh','release','download',config['release'],'--pattern',asset],check=True)
+          assert hashlib.sha256(Path(asset).read_bytes()).hexdigest()==config['sha256'],'Release checksum mismatch'
+          with tarfile.open(asset,'r:gz') as archive:
+              archive.extractall('site',filter='data')
+          files=[p for p in Path('site').rglob('*') if p.is_file()]
+          assert len(files)==config['siteFileCount'],'File count mismatch'
+          assert sum(p.stat().st_size for p in files)==config['siteBytes'],'Site size mismatch'
+          assert Path('site/index.html').is_file() and Path('site/save-transfer.html').is_file()
+          print('Verified',len(files),'site files')
+          PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
