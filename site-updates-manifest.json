@@ -64,8 +64,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 23274,
-      "sha256": "96e5541b0ca2e7a86f74b296d55540970969f6b449fe1fe9598a7a521f9acf9b"
+      "bytes": 23566,
+      "sha256": "a317eb60ccb1bb06b7b5ba4ade15ec20de981ad7980a6df23c72de588e56b593"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -341,10 +341,70 @@
       "path": "assets/knight-five-actions-v1/spear-3.webp",
       "bytes": 141666,
       "sha256": "a550d2fc4169589ea768111ac01e9e2c7926264430e63c9507d0717b6105224f"
+    },
+    {
+      "path": "priest-v1.js",
+      "bytes": 9752,
+      "sha256": "869aca9eb2e6f43476ae9e5834141e9aa12261bd44c2495f7aa8388c9f7f7647"
+    },
+    {
+      "path": "priest-mechanisms.js",
+      "bytes": 5940,
+      "sha256": "92f93e12d50322c80630f8e92e3a8ba989408e886d869ac1b6036e46457ea35d"
+    },
+    {
+      "path": "priest-forms.js",
+      "bytes": 8130,
+      "sha256": "e1746b88cdbbfbe192bc6f776e66e8edfcd1baaebdb74ce2d2e40bd028822391"
+    },
+    {
+      "path": "priest-forms.css",
+      "bytes": 360,
+      "sha256": "9404b931b26a2574893e5ffd32f78e36acfc52e2a2c5f5815ec91dd56ce3b758"
+    },
+    {
+      "path": "priest-form-frames.js",
+      "bytes": 23928,
+      "sha256": "9f1a5bb33fcfc9589b8a78b0bfcaeade8fd9244344cdec2e08faa31753aefa55"
+    },
+    {
+      "path": "priest-form-art.js",
+      "bytes": 3864,
+      "sha256": "79910f19a714c3733fe570a198c88d13572442db4ce1f06798d4a76c1aad71c6"
+    },
+    {
+      "path": "assets/priest-forms-v1/nunCast.webp",
+      "bytes": 1411942,
+      "sha256": "454504302179ac367c50caca91c4410bc7bd66caf3bfbc17b8bc9caef0b25db9"
+    },
+    {
+      "path": "assets/priest-forms-v1/nunIdle.webp",
+      "bytes": 1275356,
+      "sha256": "e8b4efbdbf2f6c7fcd52bf09ffa0aa2cbbf8ef54deec613bae33c5d9fdd2b05a"
+    },
+    {
+      "path": "assets/priest-forms-v1/weaveCast.webp",
+      "bytes": 1621838,
+      "sha256": "e059eedeb4e0e5b703d5bc6c5ce1d3740174f18c3b4096a7a84796373800a4e1"
+    },
+    {
+      "path": "assets/priest-forms-v1/funeralIdle.webp",
+      "bytes": 1386246,
+      "sha256": "4776a66eed6fad7a1812baff792d15e80b299b517ae190703dc031622018ef2d"
+    },
+    {
+      "path": "assets/priest-forms-v1/funeralCast.webp",
+      "bytes": 1319256,
+      "sha256": "7f22a1f967482b3e0b8a022c3b26d03b96bd15738ac6eb8fcb567daf6f9dcc06"
+    },
+    {
+      "path": "assets/priest-forms-v1/weaveIdle.webp",
+      "bytes": 1539802,
+      "sha256": "f2623a40973a1eb93d18a6ef9aed97579f3f60b0cbb5cd1df6988fa72a47ea1c"
     }
   ],
-  "siteFileCount": 1398,
-  "siteBytes": 282211884,
+  "siteFileCount": 1409,
+  "siteBytes": 290809594,
   "actions": [
     "idle",
     "attack",
@@ -359,5 +419,5 @@
     "save-transfer.html",
     "save-transfer.js"
   ],
-  "sourceCommit": "503bfac6f88aac85633e507158c35a697f6da97a"
+  "sourceCommit": "844bae386cd2038711e79545f1314d7e4a2ff206"
 }
