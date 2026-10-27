@@ -64,8 +64,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 23566,
-      "sha256": "a317eb60ccb1bb06b7b5ba4ade15ec20de981ad7980a6df23c72de588e56b593"
+      "bytes": 23621,
+      "sha256": "3222a413d8e66b4ca295beef1dda5e9ccc9273712ef01af5ce80853c477a66f3"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -401,10 +401,35 @@
       "path": "assets/priest-forms-v1/weaveIdle.webp",
       "bytes": 1539802,
       "sha256": "f2623a40973a1eb93d18a6ef9aed97579f3f60b0cbb5cd1df6988fa72a47ea1c"
+    },
+    {
+      "path": "priest-run-v2.js",
+      "bytes": 4154,
+      "sha256": "8afa219933d374a26c22c09da28e3c9c82a2c7d9994686ad1617b43c5709ed7d"
+    },
+    {
+      "path": "assets/priest-run-v2/run-0.webp",
+      "bytes": 137922,
+      "sha256": "b552bf3b0c3af8625d8c8deb7ee85280c9def846a8af292da52ceccfe8927150"
+    },
+    {
+      "path": "assets/priest-run-v2/run-1.webp",
+      "bytes": 137288,
+      "sha256": "0e53540a8cf088c66746248fd44a6359a2ed129463b29d87a7c676d6f5865cec"
+    },
+    {
+      "path": "assets/priest-run-v2/run-2.webp",
+      "bytes": 142702,
+      "sha256": "ce3b2e325b6a7aa65465f7052b024d2f2501803a91e569350ad5b8293a4b1e78"
+    },
+    {
+      "path": "assets/priest-run-v2/run-3.webp",
+      "bytes": 131430,
+      "sha256": "3e3d966e3e589e4a62fea9427ed0a30310718d159959ec9922257c7963866511"
     }
   ],
-  "siteFileCount": 1409,
-  "siteBytes": 290809594,
+  "siteFileCount": 1414,
+  "siteBytes": 291363145,
   "actions": [
     "idle",
     "attack",
