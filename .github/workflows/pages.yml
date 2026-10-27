@@ -2,7 +2,7 @@ name: Deploy Ember to GitHub Pages
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/pages.yml', 'deployment.json']
+    paths: ['.github/workflows/pages.yml', '.github/scripts/**', 'deployment.json', 'site-updates/**', 'site-updates-manifest.json']
   workflow_dispatch:
 permissions:
   contents: read
@@ -40,6 +40,8 @@ jobs:
           assert Path('site/index.html').is_file() and Path('site/save-transfer.html').is_file()
           print('Verified',len(files),'site files')
           PY
+      - name: Apply verified site updates
+        run: python3 .github/scripts/apply-site-updates.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
@@ -47,3 +49,4 @@ jobs:
       - name: Publish
         id: deployment
         uses: actions/deploy-pages@v4
+

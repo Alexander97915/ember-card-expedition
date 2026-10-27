@@ -1,0 +1,410 @@
+[
+  {
+    "state": "attack",
+    "frame": 0,
+    "box": [
+      0,
+      10,
+      629,
+      671
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      310,
+      625
+    ],
+    "sha256": "71ef70375cc65f388c9b2890c30d0ab067f713715e86cba5157473454e7896ca",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "attack",
+    "frame": 1,
+    "box": [
+      572,
+      25,
+      1254,
+      703
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      970,
+      625
+    ],
+    "sha256": "d64e4d4b42b8d3b4d05429af61c3e9b992ca51e470681ea3adfdec7144d36a8e",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "attack",
+    "frame": 2,
+    "box": [
+      35,
+      666,
+      736,
+      1230
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      360,
+      1198
+    ],
+    "sha256": "8884193461a5c167982588f1c804d4180efd9346ef010119970006c09a1169c6",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "attack",
+    "frame": 3,
+    "box": [
+      666,
+      626,
+      1254,
+      1234
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      1040,
+      1229
+    ],
+    "sha256": "24e9e77ace1d570b1c1c2a3cad96c3b5d4aef06fc2d9fc4737dbc373e024030f",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "walk",
+    "frame": 0,
+    "box": [
+      0,
+      0,
+      693,
+      663
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      435,
+      601
+    ],
+    "sha256": "208c2ad5e3acd1e81ce1a4207b24848e96120c37d4e70dd21d20a85e9c9799b4",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "walk",
+    "frame": 1,
+    "box": [
+      606,
+      0,
+      1228,
+      641
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      1040,
+      601
+    ],
+    "sha256": "b7426bf54539878639ab3fac60ac04d94c9485bdfca62a2d6510f3bae84cc557",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "walk",
+    "frame": 2,
+    "box": [
+      0,
+      610,
+      673,
+      1254
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      438,
+      1205
+    ],
+    "sha256": "469948271fe1f0c592dae805de158354f530fb42d6141f5b7d6ee52b199dd283",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "walk",
+    "frame": 3,
+    "box": [
+      596,
+      606,
+      1238,
+      1236
+    ],
+    "scale": 0.74,
+    "nativeFoot": [
+      1043,
+      1205
+    ],
+    "sha256": "171f1d0118f087efffd096e40b95176f503c722770c15c7218a0d8cc0d705b56",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "guard",
+    "frame": 0,
+    "box": [
+      0,
+      0,
+      709,
+      675
+    ],
+    "scale": 0.72,
+    "nativeFoot": [
+      420,
+      630
+    ],
+    "sha256": "560f2b9b5d731b88325b1d681dd1a77aa6708a82596ec26a7db2b75ffa21ada8",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "guard",
+    "frame": 1,
+    "box": [
+      634,
+      5,
+      1254,
+      684
+    ],
+    "scale": 0.72,
+    "nativeFoot": [
+      1048,
+      630
+    ],
+    "sha256": "4d548ee2457c7dc67e914f1708695459c80812975ed073e776421270c5ddd36b",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "guard",
+    "frame": 2,
+    "box": [
+      0,
+      643,
+      655,
+      1238
+    ],
+    "scale": 0.72,
+    "nativeFoot": [
+      420,
+      1230
+    ],
+    "sha256": "254b5da9b245fe82e1940eab5e67709466820f8adaa046ab04db0f358dc3c90e",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "guard",
+    "frame": 3,
+    "box": [
+      636,
+      618,
+      1254,
+      1237
+    ],
+    "scale": 0.72,
+    "nativeFoot": [
+      1048,
+      1230
+    ],
+    "sha256": "00062a97b04511dad119a3b6d2a6849467f6099ca8c76dc71c554502e05e2094",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "hurt",
+    "frame": 0,
+    "box": [
+      0,
+      0,
+      695,
+      681
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      415,
+      623
+    ],
+    "sha256": "0562b6106ed8799ab7cadfa2ccd9d6e2841a4720141ef3e096f3d39edd487325",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "hurt",
+    "frame": 1,
+    "box": [
+      588,
+      14,
+      1254,
+      690
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      1040,
+      618
+    ],
+    "sha256": "18a0c305a1a010e0ec147200d0311c901781adf95f5031e2ad3288de91f77e45",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "hurt",
+    "frame": 2,
+    "box": [
+      0,
+      648,
+      672,
+      1254
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      415,
+      1242
+    ],
+    "sha256": "c39de38f82fcfe97fe7e19d291af720f084e00545b4fec53de1a0a1cf6ddf62a",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "hurt",
+    "frame": 3,
+    "box": [
+      620,
+      626,
+      1254,
+      1254
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      1040,
+      1246
+    ],
+    "sha256": "2f88e90bea3763e81d3c6c7ffd49f4f6fd2621b5badc882be2bd28d1569d5a72",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "cast",
+    "frame": 0,
+    "box": [
+      0,
+      31,
+      623,
+      701
+    ],
+    "scale": 0.8,
+    "nativeFoot": [
+      370,
+      618
+    ],
+    "sha256": "d4080dcb4181135603f1436d88c0a2719fa007f25d985b0840acb4b18dbd91ee",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "cast",
+    "frame": 1,
+    "box": [
+      602,
+      15,
+      1224,
+      712
+    ],
+    "scale": 0.8,
+    "nativeFoot": [
+      1000,
+      615
+    ],
+    "sha256": "1d4ab71778c00884c2e566d4045dde06e23faa207034881223457c44a9e06fea",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "cast",
+    "frame": 2,
+    "box": [
+      0,
+      700,
+      774,
+      1254
+    ],
+    "scale": 0.8,
+    "nativeFoot": [
+      350,
+      1185
+    ],
+    "sha256": "800afe02288fc9d8fe001719a77849b9b3df75f3ccdc4a17e4a86fc83f1b481e",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "cast",
+    "frame": 3,
+    "box": [
+      686,
+      666,
+      1216,
+      1236
+    ],
+    "scale": 0.8,
+    "nativeFoot": [
+      1035,
+      1185
+    ],
+    "sha256": "2940183a7de05c336020621e1601ef45637cb0c84f98eade96c12d00d8a2567b",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "fallen",
+    "frame": 0,
+    "box": [
+      0,
+      15,
+      711,
+      774
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      440,
+      654
+    ],
+    "sha256": "36387cf11df9d178652f5f5294a7e70e39127e22db42bb1f70f0a845ef5872ca",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "fallen",
+    "frame": 1,
+    "box": [
+      584,
+      9,
+      1254,
+      792
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      1040,
+      654
+    ],
+    "sha256": "b82db480e793040e3439f5f704fbaecde16de6e3aa6f5e4f6feee58c3c7622fa",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "fallen",
+    "frame": 2,
+    "box": [
+      0,
+      728,
+      697,
+      1254
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      410,
+      1205
+    ],
+    "sha256": "88e0c6065bdc2e67f4ffa35e6a56f136797a1c1985b9f737e4ae3594ba2afdcb",
+    "nativeVisibleRGBAPreserved": true
+  },
+  {
+    "state": "fallen",
+    "frame": 3,
+    "box": [
+      646,
+      779,
+      1254,
+      1254
+    ],
+    "scale": 0.66,
+    "nativeFoot": [
+      1040,
+      1205
+    ],
+    "sha256": "385ff5f2bc2eb2372ce74edb8637983bf5bfe204ed6ee751a1556256313485d6",
+    "nativeVisibleRGBAPreserved": true
+  }
+]

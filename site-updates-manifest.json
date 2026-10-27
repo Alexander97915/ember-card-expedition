@@ -1,0 +1,173 @@
+{
+  "baseRelease": "v387",
+  "baseSha256": "360c7a271b9c3d259084d04736fe890ee12dac48d83f141c9bf2a8bcde8a9c8c",
+  "files": [
+    {
+      "path": "sprite-system.js",
+      "sha256": "017599cfdbdd7ad9f8e1eb6ab4540d03760c41736be8149a90f80dadfa395739",
+      "bytes": 23070
+    },
+    {
+      "path": "swordsman-v1.js",
+      "sha256": "72f982a31ed998a4ef3c418cce77fa4d818a449a21d0604ee6d3ba3be433da2b",
+      "bytes": 3100
+    },
+    {
+      "path": "game.js",
+      "sha256": "8749035de19b7b65336e7e6321d2663d66e764e42ed82653144f19b91dcbdfab",
+      "bytes": 79620
+    },
+    {
+      "path": "swordsman-frames-v1.js",
+      "sha256": "5259194336eb45ffa38f606205cce6dd96619b8671726328eeaf1c5f6ca665e9",
+      "bytes": 5353
+    },
+    {
+      "path": "index.html",
+      "sha256": "4dafd381ad25b30698a566bf7e8a6f0150e25ef12a9e03d966d75ca8d620a6e0",
+      "bytes": 22863
+    },
+    {
+      "path": "swordsman-actions-v2.js",
+      "sha256": "242d9a79911d649e3cf7acff5a93c45a84fce3233759d4e8d603882155b710ef",
+      "bytes": 30656
+    },
+    {
+      "path": "swordsman-v1.css",
+      "sha256": "c71882ca53dcb8a901965b265984c26fcd7dea618bd8562d7c9bcea586636de3",
+      "bytes": 2543
+    },
+    {
+      "path": "assets/swordsman-actions-v2/hurt-3.webp",
+      "sha256": "2f88e90bea3763e81d3c6c7ffd49f4f6fd2621b5badc882be2bd28d1569d5a72",
+      "bytes": 419508
+    },
+    {
+      "path": "assets/swordsman-actions-v2/cast-0.webp",
+      "sha256": "d4080dcb4181135603f1436d88c0a2719fa007f25d985b0840acb4b18dbd91ee",
+      "bytes": 294772
+    },
+    {
+      "path": "assets/swordsman-actions-v2/guard-3.webp",
+      "sha256": "00062a97b04511dad119a3b6d2a6849467f6099ca8c76dc71c554502e05e2094",
+      "bytes": 381884
+    },
+    {
+      "path": "assets/swordsman-actions-v2/attack-3.webp",
+      "sha256": "24e9e77ace1d570b1c1c2a3cad96c3b5d4aef06fc2d9fc4737dbc373e024030f",
+      "bytes": 398878
+    },
+    {
+      "path": "assets/swordsman-actions-v2/walk-1.webp",
+      "sha256": "b7426bf54539878639ab3fac60ac04d94c9485bdfca62a2d6510f3bae84cc557",
+      "bytes": 387990
+    },
+    {
+      "path": "assets/swordsman-actions-v2/fallen-0.webp",
+      "sha256": "36387cf11df9d178652f5f5294a7e70e39127e22db42bb1f70f0a845ef5872ca",
+      "bytes": 450596
+    },
+    {
+      "path": "assets/swordsman-actions-v2/walk-0.webp",
+      "sha256": "208c2ad5e3acd1e81ce1a4207b24848e96120c37d4e70dd21d20a85e9c9799b4",
+      "bytes": 402548
+    },
+    {
+      "path": "assets/swordsman-actions-v2/hurt-1.webp",
+      "sha256": "18a0c305a1a010e0ec147200d0311c901781adf95f5031e2ad3288de91f77e45",
+      "bytes": 430310
+    },
+    {
+      "path": "assets/swordsman-actions-v2/fallen-2.webp",
+      "sha256": "88e0c6065bdc2e67f4ffa35e6a56f136797a1c1985b9f737e4ae3594ba2afdcb",
+      "bytes": 321156
+    },
+    {
+      "path": "assets/swordsman-actions-v2/cast-1.webp",
+      "sha256": "1d4ab71778c00884c2e566d4045dde06e23faa207034881223457c44a9e06fea",
+      "bytes": 270056
+    },
+    {
+      "path": "assets/swordsman-actions-v2/guard-0.webp",
+      "sha256": "560f2b9b5d731b88325b1d681dd1a77aa6708a82596ec26a7db2b75ffa21ada8",
+      "bytes": 427014
+    },
+    {
+      "path": "assets/swordsman-actions-v2/cast-2.webp",
+      "sha256": "800afe02288fc9d8fe001719a77849b9b3df75f3ccdc4a17e4a86fc83f1b481e",
+      "bytes": 234472
+    },
+    {
+      "path": "assets/swordsman-actions-v2/fallen-3.webp",
+      "sha256": "385ff5f2bc2eb2372ce74edb8637983bf5bfe204ed6ee751a1556256313485d6",
+      "bytes": 228978
+    },
+    {
+      "path": "assets/swordsman-actions-v2/guard-1.webp",
+      "sha256": "4d548ee2457c7dc67e914f1708695459c80812975ed073e776421270c5ddd36b",
+      "bytes": 385632
+    },
+    {
+      "path": "assets/swordsman-actions-v2/guard-2.webp",
+      "sha256": "254b5da9b245fe82e1940eab5e67709466820f8adaa046ab04db0f358dc3c90e",
+      "bytes": 427106
+    },
+    {
+      "path": "assets/swordsman-actions-v2/attack-0.webp",
+      "sha256": "71ef70375cc65f388c9b2890c30d0ab067f713715e86cba5157473454e7896ca",
+      "bytes": 404702
+    },
+    {
+      "path": "assets/swordsman-actions-v2/attack-2.webp",
+      "sha256": "8884193461a5c167982588f1c804d4180efd9346ef010119970006c09a1169c6",
+      "bytes": 376706
+    },
+    {
+      "path": "assets/swordsman-actions-v2/walk-2.webp",
+      "sha256": "469948271fe1f0c592dae805de158354f530fb42d6141f5b7d6ee52b199dd283",
+      "bytes": 399768
+    },
+    {
+      "path": "assets/swordsman-actions-v2/fallen-1.webp",
+      "sha256": "b82db480e793040e3439f5f704fbaecde16de6e3aa6f5e4f6feee58c3c7622fa",
+      "bytes": 365462
+    },
+    {
+      "path": "assets/swordsman-actions-v2/hurt-2.webp",
+      "sha256": "c39de38f82fcfe97fe7e19d291af720f084e00545b4fec53de1a0a1cf6ddf62a",
+      "bytes": 411700
+    },
+    {
+      "path": "assets/swordsman-actions-v2/attack-1.webp",
+      "sha256": "d64e4d4b42b8d3b4d05429af61c3e9b992ca51e470681ea3adfdec7144d36a8e",
+      "bytes": 349472
+    },
+    {
+      "path": "assets/swordsman-actions-v2/hurt-0.webp",
+      "sha256": "0562b6106ed8799ab7cadfa2ccd9d6e2841a4720141ef3e096f3d39edd487325",
+      "bytes": 423690
+    },
+    {
+      "path": "assets/swordsman-actions-v2/cast-3.webp",
+      "sha256": "2940183a7de05c336020621e1601ef45637cb0c84f98eade96c12d00d8a2567b",
+      "bytes": 251836
+    },
+    {
+      "path": "assets/swordsman-actions-v2/walk-3.webp",
+      "sha256": "171f1d0118f087efffd096e40b95176f503c722770c15c7218a0d8cc0d705b56",
+      "bytes": 386382
+    }
+  ],
+  "siteFileCount": 1370,
+  "siteBytes": 276168274,
+  "actions": [
+    "idle",
+    "attack",
+    "walk",
+    "guard",
+    "hurt",
+    "cast",
+    "fallen"
+  ],
+  "frames": 28
+}

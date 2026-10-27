@@ -1,0 +1,10 @@
+{
+  "desktop": true,
+  "sevenTabs": true,
+  "manualFrameSingleVisible": true,
+  "thrustFullyVisible": true,
+  "fallenHoldsFinalFrame": true,
+  "controlsVisible": true,
+  "noHorizontalOverflow": true,
+  "playable": false
+}
