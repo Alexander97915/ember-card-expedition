@@ -1,0 +1,44 @@
+[
+  {
+    "frame": 1,
+    "source": "idle-1.png",
+    "sourceSha256": "49d0688b6c7de62a6d1840edbb88dfbd8ec6a337759622711e875c892cbae04c",
+    "assetSha256": "7e95ef65b32d4a39a20a2deffb082f288d29eab2aac8261bbb13e4e93eed9d0e",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "canvasPadding": 16,
+    "sourcePixelsPreserved": true,
+    "reference": "assets/swordsman-v1/idle-1.webp",
+    "referenceHeight": 371.58000000000004,
+    "height": 371.58000000000004,
+    "eye": [
+      710,
+      130
+    ],
+    "ground": 1192,
+    "scale": 0.34988700564971753
+  },
+  {
+    "frame": 3,
+    "source": "idle-3.png",
+    "sourceSha256": "c5c03d381d7939d33a4a87b5bbaf6c2dab4d908f6b309dc1322775026d7e7b7b",
+    "assetSha256": "771d943917b5690d0959fdc1e81b2ffec71379bab46e176e3a8164afb961f3b2",
+    "nativeSize": [
+      1193,
+      1318
+    ],
+    "canvasPadding": 16,
+    "sourcePixelsPreserved": true,
+    "reference": "assets/swordsman-v1/idle-3.webp",
+    "referenceHeight": 365.64000000000004,
+    "height": 365.64000000000004,
+    "eye": [
+      654,
+      132
+    ],
+    "ground": 1156,
+    "scale": 0.35707031250000004
+  }
+]

@@ -1,0 +1,16 @@
+'use strict';
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const harness=fs.readFileSync('tests/campaign-events.test.cjs','utf8').split('let w=world()')[0],scope={require,console};vm.runInNewContext(harness+'globalThis.makeWorld=world;',scope);
+const w=scope.makeWorld(),r=c=>w.run(c);
+r('newRun([0,1,2]);startBattle("戰鬥",false);clearFX();s.auto.paused=false;$("modal").open=false');
+const before=r('JSON.stringify({...s,expeditionMetrics:null})');
+r('help()');assert(r('$("modalbody").innerHTML.includes("遊戲百科")'));assert(r('autoBlocked()'));
+r('searchGameEncyclopedia("坐騎")');assert(r('encyclopediaMatches().some(a=>a.id==="knight")'));r('selectEncyclopediaArticle("knight")');assert(r('$("wiki-article").innerHTML.includes("騎士：誓約與坐騎")'));
+r('searchGameEncyclopedia("<img src=x onerror=alert(1)>")');assert.equal(r('encyclopediaMatches().length'),0);assert(!r('$("wiki-article").innerHTML.includes("<img")'));
+r('showGameEncyclopedia("build");selectEncyclopediaArticle("deck")');assert(r('$("wiki-article").innerHTML.includes("showDeck()")'));assert(r('encyclopediaMatches().every(a=>a.section==="build")'));
+w.tick(1000);assert.equal(r('JSON.stringify({...s,expeditionMetrics:null})'),before,'reading and searching do not mutate the run');
+r('startNewcomerTutorial(true,4);chooseNewcomerWeakness("fire")');assert(r('$("modalbody").innerHTML.includes("再試試冰霜")'));r('chooseNewcomerWeakness("ice")');assert(r('$("modalbody").innerHTML.includes("正確！")'));assert.equal(r('JSON.stringify({...s,expeditionMetrics:null})'),before,'both practice choices are isolated');
+r('finishNewcomerToEncyclopedia()');assert.equal(r('newcomerSession'),null);assert(r('$("modalbody").innerHTML.includes("遊戲百科")'));
+r('showSkillBook()');assert(!r('$("modalbody").innerHTML.includes("地震波依指定數值")'));assert(r('$("modalbody").innerHTML.includes("skill-book-art")'));
+const html=fs.readFileSync('dist/index.html','utf8');assert(!html.includes('save-transfer'));assert(!fs.existsSync('dist/save-transfer.js'));assert(!fs.existsSync('dist/save-transfer.html'));
+console.log('PASS encyclopedia navigation/search/empty results, paused read isolation, weakness practice, codex cards and transfer removal');

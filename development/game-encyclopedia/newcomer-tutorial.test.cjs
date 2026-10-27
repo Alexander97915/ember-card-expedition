@@ -1,0 +1,42 @@
+'use strict';
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const harness=fs.readFileSync('tests/campaign-events.test.cjs','utf8').split('let w=world()')[0],scope={require,console};
+vm.runInNewContext(harness+'globalThis.makeWorld=world;',scope);
+const key='ember-newcomer-tutorial';
+let w=scope.makeWorld();
+assert(w.stored['ember-v3'],'game boot creates its save before DOMContentLoaded');
+w.run('initNewcomerTutorial()');
+assert.equal(w.run('newcomerSession.step'),0);
+assert.equal(JSON.parse(w.stored[key]).status,'active');
+w.run('moveNewcomerTutorial(1);moveNewcomerTutorial(1)');
+let resumed=scope.makeWorld({...w.stored});resumed.run('initNewcomerTutorial()');
+assert.equal(resumed.run('newcomerSession.step'),2,'interrupted first tutorial resumes despite autosave');
+resumed.run('finishNewcomerTutorial("skipped")');
+assert.equal(JSON.parse(resumed.stored[key]).status,'skipped');
+let returning=scope.makeWorld({...resumed.stored});returning.run('initNewcomerTutorial()');
+assert.equal(returning.run('newcomerSession'),null,'skip prevents automatic repeat');
+// A pre-existing save gets no automatic tutorial, including on later new runs.
+let legacy=scope.makeWorld({'ember-v3':w.stored['ember-v3']});legacy.run('initNewcomerTutorial()');
+assert.equal(legacy.run('newcomerSession'),null);
+assert.equal(JSON.parse(legacy.stored[key]).status,'existing');
+legacy.run('newRun();initNewcomerTutorial()');assert.equal(legacy.run('newcomerSession'),null);
+legacy.run('showGameSettings()');assert(legacy.run('$("modalbody").innerHTML.includes("重看新手教學")'));
+legacy.run('showMobileBattleMenu()');assert(legacy.run('$("modalbody").innerHTML.includes("showGameSettings()")'));
+// Rewatch and practice pause combat and leave party, deck, energy, and progression intact.
+legacy.run('newRun([0,1,2]);startBattle("戰鬥",false);clearFX();s.auto.paused=false;$("modal").open=false');
+const stateWithoutWallMetrics='JSON.stringify({...s,expeditionMetrics:null})';
+const before=legacy.run(stateWithoutWallMetrics);
+legacy.run('startNewcomerTutorial(true);moveNewcomerTutorial(1);moveNewcomerTutorial(1);moveNewcomerTutorial(1)');
+assert.equal(legacy.run('autoBlocked()'),true);
+legacy.tick(1000);
+legacy.run('playNewcomerDemo();playNewcomerDemo()');
+assert(legacy.run('newcomerSession.played'));
+assert.equal(legacy.run(stateWithoutWallMetrics),before,'demo never spends real resources or advances battle clock');
+legacy.run('finishNewcomerTutorial("completed")');
+assert.equal(JSON.parse(legacy.stored[key]).status,'existing','manual rewatch preserves automatic-visit record');
+assert.equal(legacy.run('newcomerSession'),null);
+// Completion is persistent; first-time practice remains optional.
+w=scope.makeWorld();w.run('initNewcomerTutorial();moveNewcomerTutorial(1);moveNewcomerTutorial(1);moveNewcomerTutorial(1);moveNewcomerTutorial(1);moveNewcomerTutorial(1);moveNewcomerTutorial(1);finishNewcomerTutorial("completed")');
+assert.equal(JSON.parse(w.stored[key]).status,'completed');
+returning=scope.makeWorld({...w.stored});returning.run('initNewcomerTutorial()');assert.equal(returning.run('newcomerSession'),null);
+console.log('PASS first visit before autosave, interrupted resume, skip/completion persistence, legacy saves, new runs, settings rewatch, paused combat and isolated one-shot practice');

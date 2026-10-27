@@ -9,23 +9,23 @@
     },
     {
       "path": "swordsman-v1.js",
-      "sha256": "72f982a31ed998a4ef3c418cce77fa4d818a449a21d0604ee6d3ba3be433da2b",
-      "bytes": 3100
+      "sha256": "3f5d6ae55e53ff28b771c869723dffebce27c919fd07b844adf81350fa44fc2e",
+      "bytes": 3161
     },
     {
       "path": "game.js",
-      "sha256": "8749035de19b7b65336e7e6321d2663d66e764e42ed82653144f19b91dcbdfab",
-      "bytes": 79620
+      "sha256": "c00e8ecb06a98738b86cb08d631619863c8046a6d8dc377eb428993102b321cb",
+      "bytes": 67173
     },
     {
       "path": "swordsman-frames-v1.js",
-      "sha256": "5259194336eb45ffa38f606205cce6dd96619b8671726328eeaf1c5f6ca665e9",
-      "bytes": 5353
+      "sha256": "cde28d189303b57e649d63948b2e3021f61b4fdb8e56522813de0a309e7e43a7",
+      "bytes": 6245
     },
     {
       "path": "index.html",
-      "sha256": "4dafd381ad25b30698a566bf7e8a6f0150e25ef12a9e03d966d75ca8d620a6e0",
-      "bytes": 22863
+      "sha256": "752e153670a785365b6cbe7f15bcb25ed7e80007b8bd7fb2057a2c0eba9e59e7",
+      "bytes": 22910
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -156,10 +156,50 @@
       "path": "assets/swordsman-actions-v2/walk-3.webp",
       "sha256": "171f1d0118f087efffd096e40b95176f503c722770c15c7218a0d8cc0d705b56",
       "bytes": 386382
+    },
+    {
+      "path": "assets/swordsman-idle-cloth-v3/idle-1.webp",
+      "sha256": "7e95ef65b32d4a39a20a2deffb082f288d29eab2aac8261bbb13e4e93eed9d0e",
+      "bytes": 1386302
+    },
+    {
+      "path": "assets/swordsman-idle-cloth-v3/idle-3.webp",
+      "sha256": "771d943917b5690d0959fdc1e81b2ffec71379bab46e176e3a8164afb961f3b2",
+      "bytes": 1240226
+    },
+    {
+      "path": "newcomer-tutorial.css",
+      "sha256": "5406136fb59916d89dc2ef0520b2bd9ca2ee02a6811b92fc9be20799ec647ddd",
+      "bytes": 4462
+    },
+    {
+      "path": "game-encyclopedia.js",
+      "sha256": "6333ad0f2f8b9012d0caae27c0923a5dac6f93f374ec0a38ea28277fb075ce65",
+      "bytes": 18707
+    },
+    {
+      "path": "game-encyclopedia.css",
+      "sha256": "5c3b17905f29feec192e5febd345cd504fd0d7de9984fe0d4dd3dc180285ed87",
+      "bytes": 3312
+    },
+    {
+      "path": "abilities.js",
+      "sha256": "bb371c995d50bb6d8e9bf5422562c138cb450dec8cf127d31b47a404522673ff",
+      "bytes": 82920
+    },
+    {
+      "path": "mobile-combat.js",
+      "sha256": "7a3a13b1d5e63dcaec6f784dfd03f776c0c6898997fe45dc1d9590f669eb6390",
+      "bytes": 4359
+    },
+    {
+      "path": "newcomer-tutorial.js",
+      "sha256": "a00314813d3b0329aa861e24bbcda07ad18af770fd527954bd2f5c7443d7df3a",
+      "bytes": 10621
     }
   ],
-  "siteFileCount": 1370,
-  "siteBytes": 276168274,
+  "siteFileCount": 1372,
+  "siteBytes": 278800680,
   "actions": [
     "idle",
     "attack",
@@ -169,5 +209,9 @@
     "cast",
     "fallen"
   ],
-  "frames": 28
+  "frames": 28,
+  "removedFiles": [
+    "save-transfer.html",
+    "save-transfer.js"
+  ]
 }

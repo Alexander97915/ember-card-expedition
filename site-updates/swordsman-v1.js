@@ -11,5 +11,5 @@ function showSwordsmanPreview(state='idle',frame=null){
 }
 function registerSwordsmanAnimations(){
  registerSpriteProfile('selena:base',{body:[140,10,280,430],head:[209,50],main:[160,240],off:[270,240],legacyFeet:[209,430]});
- for(const state of Object.keys(SWORDSMAN_ACTION_LABELS))registerSpriteAnimation({profile:'selena:base',state,frames:swordsmanFrames(state)});
+ for(const state of Object.keys(SWORDSMAN_ACTION_LABELS))registerSpriteAnimation({profile:'selena:base',state,frames:state==='idle'?swordsmanFrames(state).map(f=>spriteFrame(f)):swordsmanFrames(state)});
 }

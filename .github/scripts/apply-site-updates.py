@@ -17,6 +17,14 @@ for entry in manifest['files']:
  pending.append((src,dest))
 for src,dest in pending:
  dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dest)
+for name in manifest.get('removedFiles',[]):
+ rel=PurePosixPath(name)
+ assert not rel.is_absolute() and '..' not in rel.parts and rel.as_posix()==name and name not in seen,'Unsafe removal path'
+ dest=site/name
+ assert dest.resolve().is_relative_to(site.resolve()),'Unsafe removal destination'
+ if dest.exists():
+  assert dest.is_file() and not dest.is_symlink(),'Invalid retired file'
+  dest.unlink()
 files=[p for p in site.rglob('*') if p.is_file()]
 assert len(files)==manifest['siteFileCount'],'Updated file count mismatch'
 assert sum(p.stat().st_size for p in files)==manifest['siteBytes'],'Updated site size mismatch'
