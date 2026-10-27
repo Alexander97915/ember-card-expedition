@@ -14,8 +14,8 @@
     },
     {
       "path": "swordsman-apply.js",
-      "bytes": 6720,
-      "sha256": "3c51022c29cc86e1d127e19358046fa78243394b4f0653083c969dcd5959a3a7"
+      "bytes": 6290,
+      "sha256": "4816c521cd27e5da8d556e3c515e1b3fd63118d7837eec844fd5d5ae5f54a498"
     },
     {
       "path": "game-encyclopedia.js",
@@ -64,8 +64,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 23025,
-      "sha256": "8229bf3e57a43ba148cda03fd2f1ea6de8839ebf766865cdf4da4fe05811b44c"
+      "bytes": 23028,
+      "sha256": "f2a7ec18b94219185587fff2548ac4dab5971f3204814102d75fe13b22e45f5e"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -209,7 +209,7 @@
     }
   ],
   "siteFileCount": 1374,
-  "siteBytes": 278815624,
+  "siteBytes": 278815197,
   "actions": [
     "idle",
     "attack",
