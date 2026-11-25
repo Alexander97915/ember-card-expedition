@@ -22,3 +22,29 @@
 :is(.recruit-portrait,.hero-portrait) .animated-headshot[data-portrait="1"]{--portrait-art:url('assets/roster-preview/sou-v1.webp')}
 :is(.recruit-portrait,.hero-portrait) .animated-headshot[data-portrait="2"]{--portrait-art:url('assets/roster-preview/lia-v1.webp')}
 :is(.recruit-portrait,.hero-portrait) .animated-headshot[data-portrait="3"]{--portrait-art:url('assets/roster-preview/alicia-v1.webp')}
+
+.roster-grid .recruit-portrait {
+  height: auto;
+  aspect-ratio: 2 / 3;
+  background: #585659;
+}
+
+.recruit-headshot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.roster-grid .recruit-card:disabled {
+  opacity: .86;
+  filter: none;
+}
+
+@media (min-width: 1080px) {
+  .roster-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
