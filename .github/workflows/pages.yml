@@ -5,6 +5,7 @@ on:
     paths: ['.github/workflows/pages.yml', '.github/scripts/**', 'deployment.json', 'site-updates/**', 'site-updates-manifest.json']
   workflow_dispatch:
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -59,9 +60,9 @@ jobs:
           PAGES_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
         run: |
           [[ "$PAGES_ARTIFACT_ID" =~ ^[0-9]+$ ]]
-          url="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts"
+          endpoint="repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts"
           for attempt in {1..12}; do
-            if curl --silent --show-error --fail --max-time 10 --get --data-urlencode "name=$PAGES_ARTIFACT" "$url" |
+            if timeout 10s gh api --method GET "$endpoint" -f "name=$PAGES_ARTIFACT" |
               jq --exit-status --arg name "$PAGES_ARTIFACT" --arg id "$PAGES_ARTIFACT_ID" '
                 [.artifacts[] | select(.name == $name and .expired == false)]
                 | length == 1 and (.[0].id | tostring) == $id
