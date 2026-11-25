@@ -1,0 +1,24 @@
+/* User-approved complete character illustrations, with gentle illustration motion. */
+.animated-headshot.headshot{background-image:none!important;background-color:transparent;overflow:visible;isolation:isolate;--portrait-art:url('assets/character-headshots/kohaku-cutout-v3.webp');--float-time:6.4s;--motion-phase:-2.1s}
+.animated-headshot[data-portrait="1"]{--portrait-art:url('assets/character-headshots/sou-cutout-v3.webp');--float-time:7.2s;--motion-phase:-4.3s}
+.animated-headshot[data-portrait="2"]{--portrait-art:url('assets/character-headshots/lia-cutout-v3.webp');--float-time:6.8s;--motion-phase:-1.2s}
+.portrait-motion,.portrait-face{position:absolute;inset:0;display:block;pointer-events:none}
+.portrait-motion{inset:6px;transform-origin:50% 52%;animation:portrait-float var(--float-time) ease-in-out var(--motion-phase) infinite}
+.portrait-face{background-image:var(--portrait-art);background-size:contain;background-position:center;background-repeat:no-repeat;animation:portrait-breathe 4.8s ease-in-out var(--motion-phase) infinite}
+@keyframes portrait-float{0%,100%{transform:translateY(.35%) rotate(-.2deg)}50%{transform:translateY(-.35%) rotate(.2deg)}}
+@keyframes portrait-breathe{0%,100%{transform:scale(.99)}50%{transform:scale(1)}}
+.hero.fallen .portrait-motion,.hero.fallen .portrait-face{animation:none;transform:none}
+@media(prefers-reduced-motion:reduce){.portrait-motion,.portrait-face{animation:none;transform:none}}
+
+/* Fit the art to the full viewport on desktop and mobile, with safe motion padding. */
+.hero-portrait .headshot,.recruit-portrait .headshot,.card-art .headshot{inset:0;left:0;top:0;width:100%;height:100%;aspect-ratio:auto;transform:none}
+.card-art.portrait-pair .headshot{width:50%;left:0}
+.card-art.portrait-pair .headshot:nth-child(2){left:50%}
+
+.animated-headshot[data-portrait="3"]{--portrait-art:url('assets/character-headshots/alicia-cathedral-v6.webp');--float-time:7s;--motion-phase:-2.8s}
+
+/* Thumbnails for the compact roster and party slots. */
+:is(.recruit-portrait,.hero-portrait) .animated-headshot[data-portrait="0"]{--portrait-art:url('assets/roster-preview/kohaku-v1.webp')}
+:is(.recruit-portrait,.hero-portrait) .animated-headshot[data-portrait="1"]{--portrait-art:url('assets/roster-preview/sou-v1.webp')}
+:is(.recruit-portrait,.hero-portrait) .animated-headshot[data-portrait="2"]{--portrait-art:url('assets/roster-preview/lia-v1.webp')}
+:is(.recruit-portrait,.hero-portrait) .animated-headshot[data-portrait="3"]{--portrait-art:url('assets/roster-preview/alicia-v1.webp')}

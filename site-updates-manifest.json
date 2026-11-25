@@ -14,8 +14,8 @@
     },
     {
       "path": "swordsman-apply.js",
-      "bytes": 7365,
-      "sha256": "b053e4ee582dc38f5e8b86fb8bb4aa58ac4cc58ab66adeeff655293d8c36f9a1"
+      "bytes": 7139,
+      "sha256": "a54b33ca81e40832e938525b953c94b345de707fc5a0b5f07666760cb8b544d4"
     },
     {
       "path": "game-encyclopedia.js",
@@ -29,8 +29,8 @@
     },
     {
       "path": "swordsman-v1.js",
-      "bytes": 3169,
-      "sha256": "256feade1c48f46a17896a4112b41be3f2604a5edd0e8764bfa24760f5dbeb83"
+      "bytes": 3191,
+      "sha256": "0140efa24dab81978b4038b034fe48dd5ca28bf22184278954f5f8d5855df776"
     },
     {
       "path": "swordsman-skills.js",
@@ -39,8 +39,8 @@
     },
     {
       "path": "abilities.js",
-      "bytes": 82890,
-      "sha256": "0ef0828f13893ed28f152b9757c913c99a9f73c7b653c0976e3ded19f76d2b37"
+      "bytes": 83179,
+      "sha256": "ca747cceb19729466f6cb684bc68d952292b7ef2f70cc137929cf534ab1b3239"
     },
     {
       "path": "mobile-combat.js",
@@ -49,8 +49,8 @@
     },
     {
       "path": "game.js",
-      "bytes": 68570,
-      "sha256": "99260f2bc3ab8daad8f8af5bfbd1792272ed9c8227538d40d8b3069945faf449"
+      "bytes": 68743,
+      "sha256": "ffc2b9acfffa4cab500695bfdd78d5f122be52d63046b13c926760215bbeb129"
     },
     {
       "path": "swordsman-frames-v1.js",
@@ -65,7 +65,7 @@
     {
       "path": "index.html",
       "bytes": 15235,
-      "sha256": "7ef75cd677e31eecc196d3c2b6eb463a993b79106d608bc2880420feaa48423a"
+      "sha256": "0c2d1a4115b8be1a2cf0ed1cf1316ffc6607a9a7c8b1365f63ca23b55161899f"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -464,8 +464,8 @@
     },
     {
       "path": "hero-frames.js",
-      "bytes": 74550,
-      "sha256": "cbfcfcb2edfd8c1e48ad1da42ad2cb51325826dac6b5c41648453c4976686315"
+      "bytes": 74784,
+      "sha256": "f40bb6d2951afbeb5d452821b578c60bc3c10147f4951dabd70c15594fc723ce"
     },
     {
       "path": "ranger-vfx.js",
@@ -514,12 +514,47 @@
     },
     {
       "path": "mage-elements-apply-v34.js",
-      "bytes": 2953,
-      "sha256": "4ad29c86a55bef7cd188b37e55a75696e233cdeaef31607ca25749088a94db25"
+      "bytes": 2717,
+      "sha256": "9ff8da9b31edd9844ad866953729e98d60f9e0bf09a91f448fb2f32bd96f6a1b"
+    },
+    {
+      "path": "assets/roster-preview/kohaku-v1.webp",
+      "bytes": 121686,
+      "sha256": "4c5531635e588ff03f8da5ed52a5caec9ccc523c4c124a09492c0e87012b2593"
+    },
+    {
+      "path": "assets/roster-preview/sou-v1.webp",
+      "bytes": 105726,
+      "sha256": "a495185c8c51f637859bfac955ce3d7a856673791ca78e9b4b97bb4752b71ec4"
+    },
+    {
+      "path": "assets/roster-preview/lia-v1.webp",
+      "bytes": 113620,
+      "sha256": "276164c019b376f40b1246c3403a7712b4ff3fd448f436f4314652b2c998885d"
+    },
+    {
+      "path": "assets/roster-preview/alicia-v1.webp",
+      "bytes": 127094,
+      "sha256": "0640a92491be340a342432b9bc5d9ebe162e2e587d519d361a2a7cc7895fe545"
+    },
+    {
+      "path": "animated-headshots.css",
+      "bytes": 2542,
+      "sha256": "ea0c70cc15b9bfd85cf4301d0f1e9c651a8e8811d48788c9ed5a54957c234285"
+    },
+    {
+      "path": "assets/roster-preview/selena-v1.webp",
+      "bytes": 85406,
+      "sha256": "3b9a6675982be1ccef41b54eb1e9f9b91e503f5625c239a690f0990589dc0649"
+    },
+    {
+      "path": "spell-casting.js",
+      "bytes": 8477,
+      "sha256": "4c656ac1f5600917e5376dfc1544f12ad6a83489ed2fbf805a47e0ddb9ab8df3"
     }
   ],
-  "siteFileCount": 1416,
-  "siteBytes": 291860149,
+  "siteFileCount": 1421,
+  "siteBytes": 292415227,
   "actions": [
     "idle",
     "attack",
@@ -537,8 +572,8 @@
   "sourceCommit": "844bae386cd2038711e79545f1314d7e4a2ff206",
   "stylesheetBundle": {
     "path": "ember-styles.css",
-    "bytes": 502374,
-    "sha256": "552161b670d542ec6c03b006e3313982d7b16c0ba425c9f63afa13e946dede74",
+    "bytes": 502970,
+    "sha256": "b467b65b972ace7fafa7cfde1b8857014f410568a1ab53223bd3b84bfca8cad6",
     "sources": [
       "style.css",
       "battle-layout.css",

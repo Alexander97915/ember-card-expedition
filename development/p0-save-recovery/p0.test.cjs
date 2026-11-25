@@ -12,6 +12,23 @@ for(const ids of [[0,1,2],[3,4,5]]){
  for(const id of ids)for(const state of ['idle','walk','attack','cast'])assert(w.run(`heroSpriteHTML(${id},'${state}').length>0`));
  const battle=world({'ember-v3':w.stored['ember-v3']});assert.equal(battle.run('s.phase'),'battle');assert.equal(battle.run('saveRecoveryPending'),false);
 }
+// Fight entry warms only owned cards and already active transformations.
+const visuals=world(),requests=new Set();
+visuals.run("newRun([0,2,3]);startBattle('戰鬥',false);clearFX();s.deck=['fireball','knightslash'];s.hand=[]");
+visuals.ctx.Image=class{set src(path){requests.add(path)}};
+const framePaths=expression=>visuals.run(`Object.values(${expression}).flat().map(frame=>frame.asset)`);
+const magePaths=framePaths('MAGE_FORM_FRAMES.thunder');
+const knightPaths=framePaths('KNIGHT_MOUNT_FRAMES.elephant');
+assert(magePaths.length&&knightPaths.length);
+visuals.run('preloadMageForms();preloadKnightArtwork()');
+assert(!magePaths.some(path=>requests.has(path))&&!knightPaths.some(path=>requests.has(path)), 'do not warm transformations missing from the hand and deck');
+visuals.run("s.deck.push('zeusavatar','knightreservoir');preloadMageForms();preloadKnightArtwork()");
+assert(magePaths.every(path=>requests.has(path))&&knightPaths.every(path=>requests.has(path)), 'warm the transformations the player can use');
+const icePaths=framePaths('MAGE_FORM_FRAMES.ice');
+const dragonPaths=framePaths('KNIGHT_MOUNT_FRAMES.dragon');
+assert(!icePaths.some(path=>requests.has(path))&&!dragonPaths.some(path=>requests.has(path)), 'do not preload other variants');
+visuals.run("s.deck=['fireball','knightslash'];s.auto.mageForm='ice';s.party[slotOf(3)].mount={kind:'dragon',hp:12};preloadMageForms();preloadKnightArtwork()");
+assert(icePaths.every(path=>requests.has(path))&&dragonPaths.every(path=>requests.has(path)), 'warm active forms when resuming a fight');
 // A malformed primary never falls through to fresh autosave, even on pagehide.
 for(const bad of ['{broken','null','{}',JSON.stringify({version:999,s:{}})]){
  const store={'ember-v3':bad,'ember-v2':'legacy-untouched'};const x=world(store);

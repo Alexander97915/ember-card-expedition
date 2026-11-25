@@ -268,7 +268,16 @@ function knightPathAfterBasic(state){const p=s.party[slotOf(3)];if(!p||p.hp<=0)r
 function knightMountAbsorb(p,damage){const m=p.id===3?livingKnightMount():null;if(!m||damage<=0)return 0;const old=heroInterval(3),n=Math.min(m.hp,damage);m.hp-=n;if(!m.hp){m.basics=0;m.huntStacks=0;delete m.diveReady;if(m.kind==='dragon'){abilityState(3).dragonBasics=0;abilityState(3).dragonBreathStacks=0;}rescaleHeroAttack(p,old);log(knightMountName(m.kind)+'倒下，艾莉希亞下馬繼續戰鬥。')}return n}
 function knightMountHUD(p){if(p.id!==3||s.phase!=='battle')return '';const m=livingKnightMount();if(!m)return '';return `<span class="knight-mount-hud ${m?'mount-'+m.kind:'mount-dismounted'}" aria-label="${m?knightMountName(m.kind)+'生命 '+m.hp+' / '+m.max:'已下馬'}"><b>${m?knightMountName(m.kind):'步戰'} <small>${m?m.hp+' / '+m.max:'坐騎已離場'}</small></b>${m?`<span class="knight-mount-meter" role="meter" aria-label="坐騎生命" aria-valuemin="0" aria-valuemax="${m.max}" aria-valuenow="${m.hp}"><i style="width:${m.hp/m.max*100}%"></i></span>`:''}</span>`}
 function knightVisualMount(){const p=s?.party?.[slotOf(3)];return s.phase==='battle'&&p?.mount?.hp>0?p.mount:null}
-function knightVisualFrames(id,state){if(id!==3||typeof KNIGHT_MOUNT_FRAMES==='undefined'||s.phase!=='battle')return null;const path=abilityState(3).knightPath,m=knightVisualMount(),key=path==='angel'?'angel':m?.kind;if(!key)return null;const f=KNIGHT_MOUNT_FRAMES[key]||KNIGHT_MOUNT_FRAMES[key==='griffin'?'dragon':'horse'];if(!f)return null;return f[state]||f.idle}
+function knightMountFrameSet(kind){
+ if(!kind||typeof KNIGHT_MOUNT_FRAMES==='undefined')return null;
+ return KNIGHT_MOUNT_FRAMES[kind]||KNIGHT_MOUNT_FRAMES[kind==='griffin'?'dragon':'horse'];
+}
+function knightVisualFrames(id,state){
+ if(id!==3||s.phase!=='battle')return null;
+ const kind=abilityState(3).knightPath==='angel'?'angel':knightVisualMount()?.kind;
+ const frames=knightMountFrameSet(kind);
+ return frames?(frames[state]||frames.idle):null;
+}
 Object.assign(KNIGHT_CARD_LINES,{knightguardian:['守護型態 · 本場減傷 20%','普攻格擋 +3 · 施放格擋 +10'],knighthealer:['治療卡 +30% · 普攻治療 3','溢出治療 → 格擋，每次最多 8'],knightdragon:['飛龍生命 32 · 攻速 +20% · 附火 40%','每三擊龍槍 80%／龍息 150%＋灼燒 2 · 龍息增傷上限 50%'],knightangel:['天使型態 · 下馬展翼','普攻附光、治療 · 全隊救援'],knightremount:['戰馬生命 24 · 攻速 +15%','首次及每 3 擊：主擊 150% · 嘲諷 2 秒','重施回復坐騎 50% · 不消耗誓約']});
 
 function knightAfterSkill(c,result){if(c.knightStarSpear)abilityState(3).starSpearStacks=Math.min(5,(result.targetHits||[]).filter(h=>h.actual>0).length);
@@ -287,8 +296,19 @@ Object.assign(KNIGHT_CARD_LINES,{knightjudgment:['消耗誓約 → 全體光 14�
 
 function knightCardTypeName(path){return {guardian:'守護型態',healer:'治療型態',dragon:'龍騎型態',angel:'天使型態',elephant:'戰象坐騎',rhino:'鐵犀坐騎',allosaur:'斑龍坐騎',griffin:'獅鷲坐騎'}[path]||''}
 
-let knightArtworkPreloaded=false;
-function preloadKnightArtwork(){if(knightArtworkPreloaded||typeof Image!=='function'||!inParty(3))return;knightArtworkPreloaded=true;const forms=[HERO_FRAME_LAYOUT[3],...(typeof KNIGHT_MOUNT_FRAMES==='undefined'?[]:Object.values(KNIGHT_MOUNT_FRAMES))],assets=new Set();for(const form of forms)for(const frames of Object.values(form))for(const f of frames)assets.add(f.asset);for(const src of assets){preloadBattleImage(src);}}
+function preloadKnightArtwork(){
+ if(typeof Image!=='function'||!inParty(3))return;
+ const forms=new Set([HERO_FRAME_LAYOUT[3]]);
+ const current=abilityState(3).knightPath==='angel'?'angel':knightVisualMount()?.kind;
+ forms.add(knightMountFrameSet(current));
+ for(const key of [...s.deck,...(s.hand||[])]){
+  const card=C[key];
+  if(card?.owner!==3)continue;
+  const kind=card.knightMount||(card.knightHorse?'horse':card.knightDragon?'dragon':card.knightPath==='angel'?'angel':null);
+  if(kind)forms.add(knightMountFrameSet(kind));
+ }
+ for(const form of forms)if(form)for(const frames of Object.values(form))for(const frame of frames)preloadFrameArtwork(frame);
+}
 
 // Four mount cards share the established two-health-bar lifecycle.
 const KNIGHT_MOUNTS={horse:{name:'銀鬃戰馬',hp:24},dragon:{name:'飛龍',hp:32},elephant:{name:'戰象',hp:35,card:'knightreservoir'},rhino:{name:'鐵犀',hp:30,card:'knightrotation'},allosaur:{name:'斑龍',hp:24,card:'knightdawnslash'},griffin:{name:'獅鷲',hp:25,card:'knightavatar'}};
