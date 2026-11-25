@@ -1,6 +1,6 @@
 """Apply checksum-bound runtime updates over the pinned, verified release."""
 from pathlib import Path,PurePosixPath
-import hashlib,json,shutil
+import hashlib,json,re,shutil
 root=Path.cwd();manifest_path=root/'site-updates-manifest.json'
 if not manifest_path.exists():
  print('No site updates selected');raise SystemExit(0)
@@ -25,6 +25,21 @@ for name in manifest.get('removedFiles',[]):
  if dest.exists():
   assert dest.is_file() and not dest.is_symlink(),'Invalid retired file'
   dest.unlink()
+bundle=manifest.get('stylesheetBundle')
+if bundle:
+ def stylesheet_path(name):
+  assert re.fullmatch(r'[a-z0-9-]+\.css',name), 'Stylesheets must share the site root'
+  return site/name
+ sources=bundle['sources'];target=stylesheet_path(bundle['path'])
+ assert len(sources)==len(set(sources)) and target.name not in sources and target.name not in seen, 'Invalid stylesheet order or destination'
+ css=[]
+ for name in sources:
+  content=stylesheet_path(name).read_bytes()
+  assert not re.search(rb'@(?:import|charset|namespace)\b',content,re.I), 'Stylesheet requires standalone loading: '+name
+  css.append(content)
+ payload=b'\n'.join(css)
+ assert len(payload)==bundle['bytes'] and hashlib.sha256(payload).hexdigest()==bundle['sha256'], 'Stylesheet bundle checksum mismatch'
+ target.write_bytes(payload)
 files=[p for p in site.rglob('*') if p.is_file()]
 assert len(files)==manifest['siteFileCount'],'Updated file count mismatch'
 assert sum(p.stat().st_size for p in files)==manifest['siteBytes'],'Updated site size mismatch'
