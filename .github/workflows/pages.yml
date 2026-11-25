@@ -20,6 +20,7 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
+      PAGES_ARTIFACT: github-pages-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v6
       - name: Download and verify selected release
@@ -48,9 +49,32 @@ jobs:
         run: EMBER_TEST_DIST=site node development/p1-combat/p1.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
+        id: upload
         with:
+          name: ${{ env.PAGES_ARTIFACT }}
           path: site
+      - name: Wait for Pages artifact to be visible
+        shell: bash
+        env:
+          PAGES_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        run: |
+          [[ "$PAGES_ARTIFACT_ID" =~ ^[0-9]+$ ]]
+          url="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts"
+          for attempt in {1..12}; do
+            if curl --silent --show-error --fail --max-time 10 --get --data-urlencode "name=$PAGES_ARTIFACT" "$url" |
+              jq --exit-status --arg name "$PAGES_ARTIFACT" --arg id "$PAGES_ARTIFACT_ID" '
+                [.artifacts[] | select(.name == $name and .expired == false)]
+                | length == 1 and (.[0].id | tostring) == $id
+              ' >/dev/null; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo '::error::GitHub Pages artifact is still unavailable'
+          exit 1
       - name: Publish
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT }}
 
