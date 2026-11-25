@@ -26,9 +26,4 @@ heroSpriteHTML=function(id,state){
  if(cast){const index=Math.min(3,Math.floor(Math.max(0,clock-cast.started)/Math.max(1,cast.duration)*4));html=html.replace(/data-sprite-animation="[^"]+"/,'data-sprite-animation="lia:'+activeMageForm()+'/cast" data-sprite-frame="'+index+'"').replace(/class="hero-cel ([^"]+)" style="([^"]*)"/g,(m,c,style)=>'class="hero-cel '+c+'" style="animation:none!important;opacity:'+(style.includes('--frame-index:'+index+';')?'1':'0')+'!important;'+style+'"');}
  return html;
 };
-preloadMageForms=function(){
- installMageElementsV34();
- if(typeof Image!=='function'||!inParty(2))return;
- for(const sets of Object.values(MAGE_ELEMENTS_V34))for(const frame of Object.values(sets).flat())preloadFrameArtwork(frame);
-};
 const MAGE_ELEMENTS_RETIRED_V34=[...MAGE_ELEMENTS_OLD_V34].filter(asset=>asset&&!spriteAllAnimations().some(e=>e.frames.some(f=>f.asset===asset)));

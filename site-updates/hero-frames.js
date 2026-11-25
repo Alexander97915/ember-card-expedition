@@ -12,6 +12,7 @@ function activateMageLegendaryForm(c){
  if(s.phase!=='battle'||c.owner!==2||c.rarity!=='legendary'||c.freeEcho||c.frostProc)return false;
  const form=MAGE_LEGENDARY_FORMS[c.key];
  if(!form||c.summonTitan&&!c.titanSummoned)return false;
+ preloadMageForm(form);
  s.auto.mageForm=form;return true;
 }
 function mageFormFrames(state){const form=activeMageForm();if(!form)return null;
@@ -20,9 +21,16 @@ function mageFormFrames(state){const form=activeMageForm();if(!form)return null;
 }
 function mageFormLabelHTML(id){const form=id===2?activeMageForm():null;return form?'<small class="mage-form-label form-'+form+'">'+ATTR[form].name+'元素覺醒</small>':''}
 
-let mageFormsPreloaded=false;
-function preloadMageForms(){if(mageFormsPreloaded||typeof Image!=='function'||!inParty(2))return;mageFormsPreloaded=true;
- for(const form of Object.values(MAGE_FORM_FRAMES))for(const frame of [...form.idle,...form.attack]){preloadBattleImage(frame.asset);}
+function preloadMageForm(form){
+ const frames=MAGE_FORM_FRAMES[form];
+ if(!frames||typeof Image!=='function')return;
+ for(const poses of Object.values(frames))for(const frame of poses)preloadFrameArtwork(frame);
+}
+function preloadMageForms(){
+ if(typeof Image!=='function'||!inParty(2))return;
+ const forms=new Set([activeMageForm()]);
+ for(const key of [...s.deck,...(s.hand||[])])if(MAGE_LEGENDARY_FORMS[key])forms.add(MAGE_LEGENDARY_FORMS[key]);
+ for(const form of forms)preloadMageForm(form);
 }
 
 // Authored running frames replace the previous walk loop.

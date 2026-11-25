@@ -27,7 +27,6 @@
  const sprite=heroSpriteHTML;heroSpriteHTML=function(id,state,...args){const html=sprite(id,state,...args);return id===5?html.replace('class="hero-poses ',`data-selena-state="${state}" data-selena-frame="${poseFrame(state)}" class="hero-poses selena-poses `):html};
  const hudUpdate=updateAutoHUD;updateAutoHUD=function(...args){const result=hudUpdate(...args);const node=document.querySelector('.selena-poses');if(node)node.dataset.selenaFrame=String(poseFrame(node.dataset.selenaState));return result};
  const resource=resourceHUD;resourceHUD=function(p,...args){if(p.id!==5)return resource(p,...args);const count=(s?.auto?.skills?.[5]?.basicCount||0)%3;return '<div class="class-resource" aria-label="灰誓劍術：每第三次普攻追加追斬">灰誓劍術 · '+count+'/3 · 第三擊追斬</div>'};
- const head=headshotHTML;headshotHTML=function(id,...args){return id===5?'<img src="assets/swordsman-v1/idle-0.webp" alt="瑟琳娜" style="width:100%;height:100%;object-fit:cover;object-position:50% 12%">':head(id,...args)};
  swordsmanRecruitPreviewHTML=function(){return ''};
  const badges=ailmentBadgesHTML;ailmentBadgesHTML=function(unit,side){let html=badges(unit,side);if(side==='enemy'&&selMarks(unit))html+='<span class="ailment-badge">魔印 '+selMarks(unit)+'/3</span>';return html};
  if(s?.phase==='battle'&&selHero()&&selDeath()&&!['hand','draw','discard'].some(k=>s[k]?.includes('sel_return'))){if(s.hand.length<7)s.hand.push('sel_return');else s.discard.push('sel_return')}

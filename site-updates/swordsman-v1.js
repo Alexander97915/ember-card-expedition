@@ -2,7 +2,7 @@
 // Art actions are integrated independently of an unapproved combat kit.
 const SWORDSMAN_ACTION_LABELS={idle:'待機',attack:'普攻',walk:'跑步',guard:'格擋',hurt:'受擊',cast:'技能動作',fallen:'倒下'};
 function swordsmanFrames(state='idle'){return state==='idle'?SWORDSMAN_IDLE_V1:SWORDSMAN_ACTIONS_V2[state]||SWORDSMAN_IDLE_V1}
-function swordsmanRecruitPreviewHTML(){return `<button class="recruit-card swordsman-preview-card" onclick="showSwordsmanPreview()" aria-label="查看瑟琳娜劍士全部動作"><div class="swordsman-card-art"><img src="assets/swordsman-v1/idle-0.webp" alt="銀髮劍士瑟琳娜，單側暮牙頭骨肩甲" loading="lazy"></div><span class="recruit-number">動作預覽</span><div class="recruit-info"><small>劍士 · 灰誓之劍</small><h3>瑟琳娜</h3><p>七組動作 · 28 幀</p></div></button>`}
+function swordsmanRecruitPreviewHTML(){return `<button class="recruit-card swordsman-preview-card" onclick="showSwordsmanPreview()" aria-label="查看瑟琳娜劍士全部動作"><div class="swordsman-card-art"><img src="assets/roster-preview/selena-v1.webp" alt="銀髮劍士瑟琳娜，單側暮牙頭骨肩甲" loading="lazy" decoding="async"></div><span class="recruit-number">動作預覽</span><div class="recruit-info"><small>劍士 · 灰誓之劍</small><h3>瑟琳娜</h3><p>七組動作 · 28 幀</p></div></button>`}
 function swordsmanPreviewFrameHTML(f,i){return `<svg class="swordsman-action-cel" data-frame="${i}" viewBox="-210 -100 950 680" aria-hidden="true"><image href="${f.asset}" x="${f.offset[0]}" y="${f.offset[1]}" width="${f.source[0]*f.scale}" height="${f.source[1]*f.scale}"/></svg>`}
 function showSwordsmanPreview(state='idle',frame=null){
  if(!Object.hasOwn(SWORDSMAN_ACTION_LABELS,state))state='idle';if(!Number.isInteger(frame)||frame<0||frame>3)frame=null;
