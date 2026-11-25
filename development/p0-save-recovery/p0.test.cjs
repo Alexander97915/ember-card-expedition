@@ -12,6 +12,23 @@ for(const ids of [[0,1,2],[3,4,5]]){
  for(const id of ids)for(const state of ['idle','walk','attack','cast'])assert(w.run(`heroSpriteHTML(${id},'${state}').length>0`));
  const battle=world({'ember-v3':w.stored['ember-v3']});assert.equal(battle.run('s.phase'),'battle');assert.equal(battle.run('saveRecoveryPending'),false);
 }
+// Compare the reviewed head references through the same renderer used in battle.
+assert(w.run(`[53,52,56,57,49,65].every((reference,id)=>{
+ const raw=spriteFrames(id,'idle')[0],frame=spriteFrame(raw);
+ const displayedHead=reference*frame.scale/spriteRegisteredFrame(raw).scale;
+ return Math.abs(displayedHead-SPRITE_CONTRACT.headSize.target)<1e-8&&
+  spriteFrame(frame)===frame&&heroSpriteHTML(id,'idle').includes('scale('+frame.scale+')');
+})`),'all six heroes use the reviewed combat head size');
+w.run("newRun([3,0,2]);startBattle('戰鬥',false);clearFX();s.party[slotOf(3)].mount={kind:'horse',hp:24,max:24}");
+for(const state of ['idle','walk','attack','cast','guard','hurt','fallen']){
+ assert(w.run(`spriteFrames(3,'${state}').every(raw=>{
+  const frame=spriteFrame(raw),previous=spriteRegisteredFrame(raw);
+  const factor=frame.scale/previous.scale;
+  const planted=raw.sourceFootAnchor.every((value,i)=>Math.abs(frame.offset[i]+value*frame.scale-frame.anchors.Feet[i])<1e-8);
+  return planted&&frame.riderHeadWorldSize===SPRITE_CONTRACT.headSize.target&&
+   factor/1.15>1.19&&heroSpriteHTML(3,'${state}').includes('scale('+frame.scale+')');
+ })`),'enlarged horse cels share the original ground anchor in '+state);
+}
 // Fight entry warms only owned cards and already active transformations.
 const visuals=world(),requests=new Set();
 visuals.run("newRun([0,2,3]);startBattle('戰鬥',false);clearFX();s.deck=['fireball','knightslash'];s.hand=[]");
