@@ -72,7 +72,7 @@ function headshotHTML(id){if(id===5)return '<img src="assets/roster-preview/sele
 const RECRUIT_PORTRAITS=['kohaku','sou','lia','alicia','seraphina','selena'];
 function recruitPortraitHTML(id){
  const portrait=RECRUIT_PORTRAITS[id];
- const image=portrait?`<img class="recruit-headshot" src="assets/roster-portraits/${portrait}-v1.webp" alt="" width="480" height="720" decoding="async"${id>=3?' loading="lazy"':''}>`:headshotHTML(id);
+ const image=portrait?`<img class="recruit-headshot" src="assets/roster-portraits/${portrait}-v2.webp" alt="" width="480" height="720" decoding="async"${id>=3?' loading="lazy"':''}>`:headshotHTML(id);
  return `<div class="recruit-portrait">${image}</div>`;
 }
 function recruitHTML(){return '<div class="eyebrow">THREE HEROES · ONE ADVENTURE</div><h2>選擇你的冒險小隊</h2><p>點選已選角色可移除，再選其他職業。系統依角色定位自動排列前／中／後排：騎士 → 戰士 → 劍士 → 遊俠 → 法師 → 牧師。每位角色開局3張牌；劍士為破甲突刺、格劍反擊與蓄力斬，其餘職業隨機2張普通與1張精良。每職業最多 5 張出戰。</p><div class="roster-grid">'+HEROES.map((h,id)=>{let picked=s.picks.indexOf(id);return `<button class="recruit-card ${picked>=0?'picked':''}" onclick="toggleRecruit(${id})" ${picked<0&&s.picks.length===3?'disabled':''} aria-pressed="${picked>=0}">${recruitPortraitHTML(id)}<span class="recruit-number">${picked>=0?['前排','中排','後排'][picked]:'可招募'}</span><div class="recruit-info"><small>${h.job} · ♥ ${h.max}</small><h3>${h.name}</h3><p>${h.sub}</p><div>${attrsHTML(h.attrs)}</div></div></button>`}).join('')+swordsmanRecruitPreviewHTML()+'</div>'+(typeof regionRecruitHTML==='function'?regionRecruitHTML():'')+'<div class="recruit-footer"><p>已選 '+s.picks.length+' / 3 · '+'每職業最多5張；開局每人3張，共9張'+'</p><button class="primary" onclick="launchParty()" '+(!validRoster(s.picks)?'disabled':'')+'>確認小隊 · 開始遠征 →</button></div>'}
