@@ -50,7 +50,7 @@
     {
       "path": "game.js",
       "bytes": 69109,
-      "sha256": "6d1ca645117b5aa73ae85c710776b82636130fb92e4eb26745fc52d5138f0d48"
+      "sha256": "3e5d76753cecacf8c5cef19625b6bab8bdd008d83cb87d95452cb5de72e87165"
     },
     {
       "path": "swordsman-frames-v1.js",
@@ -65,7 +65,7 @@
     {
       "path": "index.html",
       "bytes": 15235,
-      "sha256": "90798b8b9eab9102b7ef16de96912d34d714907d50c246f1399ba73ba0ab9512"
+      "sha256": "e99b4930cfd1cb32ba5d41d1dcb6b7328ca818bc97c5e1136f308a754b8566d9"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -553,36 +553,6 @@
       "sha256": "4c656ac1f5600917e5376dfc1544f12ad6a83489ed2fbf805a47e0ddb9ab8df3"
     },
     {
-      "path": "assets/roster-portraits/kohaku-v1.webp",
-      "bytes": 104526,
-      "sha256": "d6ad5d28515789d13548989a4d3456006f6cd6b1ee82be2d156e3ddcdb3e3189"
-    },
-    {
-      "path": "assets/roster-portraits/sou-v1.webp",
-      "bytes": 91062,
-      "sha256": "c3c30302b899a8f6b961a452f3faa329f4f659b4c60486cd52a1d80f4d6aa413"
-    },
-    {
-      "path": "assets/roster-portraits/lia-v1.webp",
-      "bytes": 102900,
-      "sha256": "86276179f077d2b2e35683d9f5d0d29226ae9f2a0c82d51763c145bd8e94b4ce"
-    },
-    {
-      "path": "assets/roster-portraits/alicia-v1.webp",
-      "bytes": 89902,
-      "sha256": "d98b369354e68ed466065658020857b87a1522c7e19a27653a880b1959a4ecba"
-    },
-    {
-      "path": "assets/roster-portraits/seraphina-v1.webp",
-      "bytes": 102748,
-      "sha256": "0189c02528eb5f42d3af42b5bf1f46413c35578e4a1650879d6b018241585f31"
-    },
-    {
-      "path": "assets/roster-portraits/selena-v1.webp",
-      "bytes": 98078,
-      "sha256": "176dc1f2492183acd813efa22c443857ab33c877b56cc9c598233c2acd3964e6"
-    },
-    {
       "path": "knight.css",
       "bytes": 23611,
       "sha256": "d8feaa1fb471e7fd65b8e44d98bc69e5164fdb7a4458c81e33ce0d1a08eaf2f7"
@@ -591,10 +561,40 @@
       "path": "mobile-polish.css",
       "bytes": 12416,
       "sha256": "de73712752fb7def96a45052d2a049c9d279902ec5cfe0dd3adc433634eebbba"
+    },
+    {
+      "path": "assets/roster-portraits/kohaku-v2.webp",
+      "bytes": 62992,
+      "sha256": "e43fef6e87638a1d4943e1bc600f56fc08b8e807185671fdd9d3c8c231ee5fb3"
+    },
+    {
+      "path": "assets/roster-portraits/sou-v2.webp",
+      "bytes": 61762,
+      "sha256": "4d5675bbaecb74f714b3e7b7d6f140169e5305b1da85a19be71f1f29337443ff"
+    },
+    {
+      "path": "assets/roster-portraits/lia-v2.webp",
+      "bytes": 59244,
+      "sha256": "ca88ac3c33c71d61d5914e32ef85d73f3e842bcb3979b6a5566920871746e6c3"
+    },
+    {
+      "path": "assets/roster-portraits/alicia-v2.webp",
+      "bytes": 70608,
+      "sha256": "5c99a1ed285804d9eb61c48b4cc33c11dc451079c9345102cb0a7c1fe9bc11d5"
+    },
+    {
+      "path": "assets/roster-portraits/seraphina-v2.webp",
+      "bytes": 66370,
+      "sha256": "870568743d5bf2276437750433bcebab89bfc4deb92efbedf55f5783bb7cb13c"
+    },
+    {
+      "path": "assets/roster-portraits/selena-v2.webp",
+      "bytes": 73896,
+      "sha256": "592858bf1e99f425d963cca0faa6456f4780faf0a4730ffe133d099063a98068"
     }
   ],
   "siteFileCount": 1427,
-  "siteBytes": 293009260,
+  "siteBytes": 292814916,
   "actions": [
     "idle",
     "attack",
@@ -607,7 +607,13 @@
   "frames": 28,
   "removedFiles": [
     "save-transfer.html",
-    "save-transfer.js"
+    "save-transfer.js",
+    "assets/roster-portraits/kohaku-v1.webp",
+    "assets/roster-portraits/sou-v1.webp",
+    "assets/roster-portraits/lia-v1.webp",
+    "assets/roster-portraits/alicia-v1.webp",
+    "assets/roster-portraits/seraphina-v1.webp",
+    "assets/roster-portraits/selena-v1.webp"
   ],
   "sourceCommit": "844bae386cd2038711e79545f1314d7e4a2ff206",
   "stylesheetBundle": {
