@@ -63,7 +63,7 @@ function spriteNormalizeHeadSize(f){
  if(f.weaponParts)frame.weaponParts=f.weaponParts.map(p=>({...p,worldBounds:bounds(p.worldBounds)}));
  spriteHeadSizeCache.set(f,frame);return frame;
 }
-function spriteFrame(f){
+function spriteRegisteredFrame(f){
  if(f.spriteSchemaVersion===1)return spriteNormalizeHeadSize(f);
  if(spritePreparedFrames.has(f))return spriteNormalizeHeadSize(spritePreparedFrames.get(f));
  const meta=spriteFrameContext(f);if(!meta)return f;
@@ -91,6 +91,82 @@ function spriteFrame(f){
   spriteSchemaVersion:1,spriteProfile:entry.profile,spriteAnimation:entry.id,spriteFrame:meta.index,
   sampling:SPRITE_CONTRACT.sampling,registration:'legacy-authored-transform',anchorConfidence:{Feet:f.sourceFootAnchor?'measured-source':f.footAnchor?'authored-logical':'legacy-profile',Head:f.eyeAnchor||f.riderEyeAnchor?'measured-source':'profile-estimate',MainHand:f.weaponParts?.length||f.bladeTrailPoints?.length?'measured-source':'profile-estimate',OffHand:f.weaponParts?.length>1?'measured-source':'profile-estimate'}};
  spritePreparedFrames.set(f,frame);return spriteNormalizeHeadSize(frame);
+}
+
+// Reference crown-to-chin lengths on the registered art, in logical units.
+// Helmets are measured across the head inside the helmet. Spikes, ears,
+// hoods and hair volume are excluded. One factor is shared by each sequence
+// so that leaning, crouching and falling never cause a size correction.
+const battleHeadLength=Object.freeze({
+ 'party-idle-v29':{'war-idle':53,'bow-idle':52,'knight-idle':57},
+ 'party-refit-v27':{
+  'war-attack-a':61,'war-attack-b':63,'war-walk':56,'war-guard':51,'war-hurt':57,'war-fallen':52,
+  'bow-attack-a':51,'bow-attack-b':53,'bow-walk':49,'bow-guard':54,'bow-hurt':51,'bow-fallen':52
+ },
+ 'party-special-v28':{
+  'war-afterimage':58,'war-slaughter':55,'war-soulguard':65,'war-execution':53,
+  'war-eternal':54,'war-earthshatter':55,'war-slam':62,'war-brand':53,'war-instinct':53,
+  'bow-volley':53,'bow-rain':52,'bow-finisher':53
+ },
+ 'sou-chant-v26':{chant:53},
+ 'mage-actions-v36':{idle:56,attack:56,walk:55,cast:56,guard:56,hurt:55,fallen:55},
+ 'mage-elements-v34':{default:54},
+ 'knight-actions-v35':{idle:57,attack:61,walk:57,cast:55,guard:64,hurt:56,fallen:56},
+ 'knight-five-actions-v1':{chain:58,retribution:57,blood:60,spear:60,seal:60},
+ 'horse-1x2':{idle:44,attack:44},
+ 'mounted-v30':{
+  'dragon-idle':56,'dragon-attack':58,'rhino-idle':60,'rhino-attack':61,
+  'allosaur-idle':54,'allosaur-attack':54,'griffin-idle':57,'griffin-attack':57,
+  'elephant-idle':63,'elephant-attack':61
+ },
+ 'angel-v31':{idle:63},
+ 'angel-actions-v32':{default:62},
+ 'priest-complete-v41':{
+  'base-idle':49,'base-attack':49,'base-cast':49,'base-guard':46,'base-hurt':50,'base-fallen':51,
+  'dark-idle':53,'dark-attack':53
+ },
+ 'priest-run-v2':{run:46},
+ 'priest-forms-v1':{weaveIdle:51,weaveCast:51,nunIdle:55,nunCast:55,funeralIdle:52,funeralCast:52},
+ 'swordsman-v1':{idle:65},
+ 'swordsman-idle-cloth-v3':{idle:65},
+ 'swordsman-actions-v2':{attack:65,walk:63,cast:59,guard:60,hurt:64,fallen:64}
+});
+const battleScaledFrames=new WeakMap();
+function spriteFrame(raw){
+ const frame=spriteRegisteredFrame(raw);
+ if(battleScaledFrames.has(frame))return battleScaledFrames.get(frame);
+ const [,atlas,asset]=frame.asset?.split('/')||[];
+ const lengths=battleHeadLength[atlas];
+ if(!lengths)return frame;
+ const length=lengths[asset.replace(/(?:-\d+)?\.\w+$/,'')]??lengths.default;
+ if(!length)return frame;
+
+ const target=SPRITE_CONTRACT.headSize.target,factor=target/length;
+ const feet=frame.anchors.Feet;
+ const scaleCoordinate=(n,i)=>feet[i]+(n-feet[i])*factor;
+ const point=p=>p.map(scaleCoordinate);
+ const bounds=b=>b?.map((n,i)=>scaleCoordinate(n,i%2));
+ const scale=frame.scale*factor;
+ const adjusted={...frame,scale,offset:point(frame.offset),
+  displayBounds:bounds(frame.displayBounds),bodyBounds:bounds(frame.bodyBounds),
+  anchors:Object.fromEntries(Object.entries(frame.anchors).map(([key,value])=>[key,point(value)])),
+  sourcePixelsPerLogicalUnit:1/scale,headWorldSize:target,headSizeConfidence:'reviewed-battle-head-reference'
+ };
+ if(frame.riderHeadWorldSize)adjusted.riderHeadWorldSize=target;
+ for(const key of ['riderWorldAnchor','riderEyeWorldAnchor'])if(frame[key])adjusted[key]=point(frame[key]);
+ if(frame.weaponParts)adjusted.weaponParts=frame.weaponParts.map(part=>{
+  const {worldBounds}=part;
+  const scaled={...part,drawScale:part.drawScale/factor};
+  if(worldBounds){
+   const center=[(worldBounds[0]+worldBounds[2])/2,(worldBounds[1]+worldBounds[3])/2];
+   const moved=point(center);
+   scaled.worldBounds=worldBounds.map((n,i)=>n+moved[i%2]-center[i%2]);
+  }
+  return scaled;
+ });
+ battleScaledFrames.set(frame,adjusted);
+ battleScaledFrames.set(adjusted,adjusted);
+ return adjusted;
 }
 function spritePoseAttributes(frames){const f=spriteFrame(frames[0]);return `data-sprite-profile="${f.spriteProfile||''}" data-sprite-animation="${f.spriteAnimation||''}"`}
 function spriteUnitFrame(unit,art){

@@ -1,0 +1,162 @@
+.knight-headshot{background:radial-gradient(circle at 50% 30%,#647384,#19283b)!important;overflow:hidden;display:inline-block;position:relative}.knight-headshot img{position:absolute;width:155%;max-width:none;height:auto;left:-23%;top:-3%}.recruit-portrait.portrait-3 .headshot{width:100%;height:100%;border-radius:0}.recruit-portrait.portrait-3 .headshot img{width:140%;left:-20%;top:0}.resource-3{--resource-color:#e9ce84}.resource-3 .resource-meter i{background:linear-gradient(90deg,#708da9,#f3d58b)}.knight-sprite{--hero-color:#f0d58e}.knight-sprite.state-fallen .hero-poses{opacity:.4;filter:grayscale(1)}.character-gallery:has(img[src*="knight/"]) .character-standing-art{object-fit:contain;max-height:65vh;background:radial-gradient(ellipse,#53627466,#101725)}
+
+.knight-headshot img,.recruit-portrait.portrait-3 .headshot img{width:100%;height:100%;left:0;top:0;object-fit:cover}
+
+.knight-mount-hud{display:flex;flex-direction:column;width:100%;gap:1px;font-size:8px;line-height:9px;color:#e7d5a5}.knight-mount-hud b{display:flex;justify-content:space-between;font-weight:600}.knight-mount-hud small{font:inherit}.knight-mount-meter{display:block;width:100%;height:4px;border-radius:3px;overflow:hidden;background:#1c2638;box-shadow:0 0 0 1px #ad9b6b55}.knight-mount-meter i{display:block;height:100%;background:linear-gradient(90deg,#8fa6c2,#e4d1a0)}.mount-dragon .knight-mount-meter i{background:linear-gradient(90deg,#7478be,#d3a363)}.mount-dismounted{color:#9aa1ad;font-size:7px;line-height:9px}#combat-workspace[data-mode="battle"] .knight-sprite .actor-hud{grid-template-rows:48px minmax(0,1fr) minmax(20px,1fr)}.knight-sprite[data-knight-path="angel"] .actor-vitals-title>b{color:#f7e7b6}
+
+.character-gallery:has(img[src*="knight/art-v1/"]) .character-standing-art{aspect-ratio:1;object-fit:contain;object-position:center;background:#000;max-height:70dvh}.knight-headshot img[src*="art-v1/"]{object-position:50% 40%}
+
+/* Knight atlases contain four poses or one held pose, not the six-pose base cycle. */
+.knight-sprite{--idle-rise:-.4px;--idle-lean:0deg;--idle-stretch:1.003}
+.battlefield .knight-sprite .hero-poses.single-pose .hero-cel{animation:none!important;opacity:1!important}
+.battlefield .knight-sprite .poses-idle:not(.single-pose) .hero-cel:nth-child(1){animation-name:heroIdleFour0}
+.battlefield .knight-sprite .poses-idle:not(.single-pose) .hero-cel:nth-child(2){animation-name:heroIdleFour1}
+.battlefield .knight-sprite .poses-idle:not(.single-pose) .hero-cel:nth-child(3){animation-name:heroIdleFour2}
+.battlefield .knight-sprite .poses-idle:not(.single-pose) .hero-cel:nth-child(4){animation-name:heroIdleFour3}
+/* Use the source body anchor, so the rider stays over the same health-bar center. */
+#combat-workspace[data-mode="battle"] .knight-sprite .hero-poses{left:calc(50% - var(--pose-size)/2 + var(--pose-size)*var(--pose-left));bottom:calc(var(--pose-size)*var(--pose-bottom) - var(--pose-size)*.023923444976)}
+/* On foot, share the party baseline. Independent scale keeps the Feet pivot
+   fixed through idle/run/attack animation transforms and anchor projection. */
+#combat-workspace[data-mode="battle"] .battlefield .knight-sprite[data-knight-mount="none"] .hero-poses[data-sprite-profile="alicia:base"]{bottom:var(--hero-ground-bottom);scale:1}
+
+.character-gallery:has(img[src*="knight/art-v2/"]) .character-standing-art{aspect-ratio:16/9;object-fit:contain;object-position:center;max-height:70dvh;background:#101725}
+
+.camp-person .camp-knight-still{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:1;animation:none}
+
+.camp-alicia .camp-cel{object-position:center bottom}
+@media(max-width:700px){.camp-friends:has(.camp-alicia){left:1%;right:1%}}
+
+.character-gallery:has(img[src*="knight/art-v4/"]) .character-standing-art{aspect-ratio:1;object-fit:contain;object-position:center;max-height:75dvh;background:transparent}
+
+.character-gallery:has(img[src*="knight/art-v6/"]) .character-standing-art{aspect-ratio:16/9;object-fit:contain;object-position:center;max-height:70dvh;background:transparent}
+
+/* Wing cycle: a logical-clock phase keeps flaps continuous across combat renders. */
+.battlefield .knight-sprite[data-knight-mount="dragon"] .poses-idle .hero-cel{animation-duration:1.6s;animation-delay:var(--knight-flight-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="dragon"] .poses-idle .hero-cel:nth-child(1){animation-name:knightWing0}
+.battlefield .knight-sprite[data-knight-mount="dragon"] .poses-idle .hero-cel:nth-child(2){animation-name:knightWing1}
+.battlefield .knight-sprite[data-knight-mount="dragon"] .poses-idle .hero-cel:nth-child(3){animation-name:knightWing2}
+.battlefield .knight-sprite[data-knight-mount="dragon"] .poses-idle .hero-cel:nth-child(4){animation-name:knightWing3}
+@keyframes knightWing0{0%,24.999%{opacity:1}25%,100%{opacity:0}}
+@keyframes knightWing1{0%,24.999%{opacity:0}25%,49.999%{opacity:1}50%,100%{opacity:0}}
+@keyframes knightWing2{0%,49.999%{opacity:0}50%,74.999%{opacity:1}75%,100%{opacity:0}}
+@keyframes knightWing3{0%,74.999%{opacity:0}75%,100%{opacity:1}}
+.battlefield .knight-sprite[data-knight-mount="dragon"] :is(.poses-idle,.poses-walk){animation:knightFlightBob 1.6s ease-in-out infinite;animation-delay:var(--knight-flight-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="dragon"] .sprite-shadow{opacity:.16;scale:.7}
+@keyframes knightFlightBob{0%,100%{translate:0 -2px}50%{translate:0 2px}}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-mount="dragon"] :is(.poses-idle,.poses-walk){animation:none;translate:none}}
+
+.battlefield .knight-sprite[data-knight-mount="dragon"] .hero-cel{animation-play-state:var(--chant-play,running)}
+
+/* Grounded horse breathing and a brief blink, phased by the combat clock. */
+.battlefield .knight-sprite[data-knight-mount="horse"] .poses-idle .hero-cel:nth-child(1){animation:knightHorse0 3.2s steps(1,end) infinite;animation-delay:var(--knight-rest-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="horse"] .poses-idle .hero-cel:nth-child(2){animation:knightHorse1 3.2s steps(1,end) infinite;animation-delay:var(--knight-rest-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="horse"] .poses-idle .hero-cel:nth-child(3){animation:knightHorse2 3.2s steps(1,end) infinite;animation-delay:var(--knight-rest-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="horse"] .poses-idle .hero-cel:nth-child(4){animation:knightHorse3 3.2s steps(1,end) infinite;animation-delay:var(--knight-rest-age,0s);animation-play-state:var(--chant-play,running)}
+@keyframes knightHorse0{0%,37.499%{opacity:1}37.5%,100%{opacity:0}}
+@keyframes knightHorse1{0%,37.499%{opacity:0}37.5%,74.999%{opacity:1}75%,100%{opacity:0}}
+@keyframes knightHorse2{0%,74.999%{opacity:0}75%,80.999%{opacity:1}81%,100%{opacity:0}}
+@keyframes knightHorse3{0%,80.999%{opacity:0}81%,100%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-mount="horse"] .poses-idle .hero-cel{animation:none!important;opacity:0!important}.battlefield .knight-sprite[data-knight-mount="horse"] .poses-idle .hero-cel:first-child{opacity:1!important}}
+
+/* Ascended angel stays airborne; its anatomy is registered independently of wing bounds. */
+.battlefield .knight-sprite[data-knight-path="angel"][data-knight-mount="none"] :is(.poses-idle,.poses-walk,.poses-attack,.poses-cast,.poses-guard,.poses-hurt){animation:knightFlightBob 1.6s ease-in-out infinite;animation-delay:var(--knight-flight-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-path="angel"][data-knight-mount="none"] .sprite-shadow{opacity:.14;scale:.65}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-path="angel"][data-knight-mount="none"] :is(.poses-idle,.poses-walk,.poses-attack,.poses-cast,.poses-guard,.poses-hurt){animation:none;translate:none}}
+
+/* v14: eight cels, one visible at every phase; logical clock survives re-renders. */
+@keyframes aliciaEight0{0%,12.499%{opacity:1}12.5%,100%{opacity:0}}
+@keyframes aliciaEight1{0%,12.499%{opacity:0}12.5%,24.999%{opacity:1}25%,100%{opacity:0}}
+@keyframes aliciaEight2{0%,24.999%{opacity:0}25%,37.499%{opacity:1}37.5%,100%{opacity:0}}
+@keyframes aliciaEight3{0%,37.499%{opacity:0}37.5%,49.999%{opacity:1}50%,100%{opacity:0}}
+@keyframes aliciaEight4{0%,49.999%{opacity:0}50%,62.499%{opacity:1}62.5%,100%{opacity:0}}
+@keyframes aliciaEight5{0%,62.499%{opacity:0}62.5%,74.999%{opacity:1}75%,100%{opacity:0}}
+@keyframes aliciaEight6{0%,74.999%{opacity:0}75%,87.499%{opacity:1}87.5%,100%{opacity:0}}
+@keyframes aliciaEight7{0%,87.499%{opacity:0}87.5%,99.999%{opacity:1}100%{opacity:0}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel{animation-duration:1.6s;animation-timing-function:steps(1,end);animation-iteration-count:infinite;animation-delay:var(--knight-rest-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(1){animation-name:aliciaEight0}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(2){animation-name:aliciaEight1}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(3){animation-name:aliciaEight2}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(4){animation-name:aliciaEight3}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(5){animation-name:aliciaEight4}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(6){animation-name:aliciaEight5}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(7){animation-name:aliciaEight6}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:nth-child(8){animation-name:aliciaEight7}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel{animation:none!important;opacity:0!important}.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:base"] .hero-cel:first-child{opacity:1!important}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel{animation-duration:.8s;animation-timing-function:steps(1,end);animation-iteration-count:infinite;animation-delay:var(--walk-delay,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(1){animation-name:aliciaEight0}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(2){animation-name:aliciaEight1}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(3){animation-name:aliciaEight2}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(4){animation-name:aliciaEight3}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(5){animation-name:aliciaEight4}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(6){animation-name:aliciaEight5}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(7){animation-name:aliciaEight6}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:nth-child(8){animation-name:aliciaEight7}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel{animation:none!important;opacity:0!important}.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:base"] .hero-cel:first-child{opacity:1!important}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel{animation-duration:1.6s;animation-timing-function:steps(1,end);animation-iteration-count:infinite;animation-delay:var(--knight-flight-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(1){animation-name:aliciaEight0}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(2){animation-name:aliciaEight1}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(3){animation-name:aliciaEight2}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(4){animation-name:aliciaEight3}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(5){animation-name:aliciaEight4}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(6){animation-name:aliciaEight5}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(7){animation-name:aliciaEight6}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(8){animation-name:aliciaEight7}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel{animation:none!important;opacity:0!important}.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-idle[data-sprite-profile="alicia:angel"] .hero-cel:first-child{opacity:1!important}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel{animation-duration:1.6s;animation-timing-function:steps(1,end);animation-iteration-count:infinite;animation-delay:var(--knight-flight-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(1){animation-name:aliciaEight0}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(2){animation-name:aliciaEight1}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(3){animation-name:aliciaEight2}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(4){animation-name:aliciaEight3}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(5){animation-name:aliciaEight4}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(6){animation-name:aliciaEight5}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(7){animation-name:aliciaEight6}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(8){animation-name:aliciaEight7}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel{animation:none!important;opacity:0!important}.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses.poses-walk[data-sprite-profile="alicia:angel"] .hero-cel:first-child{opacity:1!important}}
+
+/* Painted taunt indicator stays above the enemy's registered body. */
+.enemy-taunt-head{position:absolute;left:50%;top:-26px;translate:-50% 0;width:26px;height:26px;z-index:18;background:#201a24e8;border:1px solid #edb96c;pointer-events:none}
+.enemy-taunt-head .ui-icon{width:100%;height:100%;image-rendering:pixelated}.enemy-taunt-head b{position:absolute;right:-8px;bottom:-3px;padding:1px 2px;background:#211923;color:#fff0ca;font-size:9px;line-height:1}.body-taunt>.raster-fx{opacity:.65}
+.body-taunt{inset:0;animation:none}
+
+.taunt-pixel-pulse{position:absolute;left:50%;top:-26px;translate:-50% 0;width:26px;height:26px;z-index:19;image-rendering:pixelated;filter:brightness(1.7);pointer-events:none;animation:knight-taunt-glint 1.2s steps(4,end) infinite;animation-delay:var(--taunt-pulse-age,0ms);animation-play-state:var(--taunt-pulse-play,running)}
+@keyframes knight-taunt-glint{0%,50%,100%{opacity:0}25%{opacity:.65}75%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.taunt-pixel-pulse{animation:none;opacity:0}}
+/* Approved blue-banner mounts: hold authored idle; animate gait through four registered cels. */
+.battlefield .knight-sprite:is([data-knight-mount="rhino"],[data-knight-mount="allosaur"]) .poses-idle .hero-cel{animation:none;opacity:1}
+.battlefield .knight-sprite:is([data-knight-mount="rhino"],[data-knight-mount="allosaur"]) .poses-walk .hero-cel{animation-duration:.64s;animation-delay:calc(var(--walk-delay) + var(--walk-phase) + var(--frame-index)*.16s - .64s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite:is([data-knight-mount="rhino"],[data-knight-mount="allosaur"]) .poses-idle{animation:blueMountRest 3.2s ease-in-out infinite;animation-delay:var(--knight-rest-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount="rhino"] .weapon-trail{display:none}
+@keyframes blueMountRest{0%,100%{translate:0 0}50%{translate:0 -.5px}}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite:is([data-knight-mount="rhino"],[data-knight-mount="allosaur"]) .poses-idle{animation:none;translate:none}}
+
+/* v18: registered four-cel idle loops; no whole-image breathing or crossfade. */
+.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle{animation:none;translate:none}
+.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle .hero-cel{opacity:0;animation-duration:3.2s;animation-timing-function:steps(1,end);animation-iteration-count:infinite;animation-delay:var(--knight-rest-age,0s);animation-play-state:var(--chant-play,running)}
+.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle .hero-cel:nth-child(1){animation-name:knightWing0}
+.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle .hero-cel:nth-child(2){animation-name:knightWing1}
+.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle .hero-cel:nth-child(3){animation-name:knightWing2}
+.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle .hero-cel:nth-child(4){animation-name:knightWing3}
+.battlefield .knight-sprite:is([data-knight-mount="griffin"],[data-knight-mount="dragon"]) .poses-idle .hero-cel{animation-duration:1.6s;animation-delay:var(--knight-flight-age,0s)}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle .hero-cel{animation:none!important;opacity:0!important}.battlefield .knight-sprite[data-knight-mount]:not([data-knight-mount="none"]) .poses-idle .hero-cel:first-child{opacity:1!important}}
+
+/* Four native silver armor cels for the normal unmounted form. */
+@keyframes aliciaSilverFour0{0%{opacity:1}25%{opacity:0}50%{opacity:0}75%{opacity:0}100%{opacity:1}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:base"] .hero-cel:nth-child(1){animation-name:aliciaSilverFour0}
+@keyframes aliciaSilverFour1{0%{opacity:0}25%{opacity:1}50%{opacity:0}75%{opacity:0}100%{opacity:0}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:base"] .hero-cel:nth-child(2){animation-name:aliciaSilverFour1}
+@keyframes aliciaSilverFour2{0%{opacity:0}25%{opacity:0}50%{opacity:1}75%{opacity:0}100%{opacity:0}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:base"] .hero-cel:nth-child(3){animation-name:aliciaSilverFour2}
+@keyframes aliciaSilverFour3{0%{opacity:0}25%{opacity:0}50%{opacity:0}75%{opacity:1}100%{opacity:0}}
+.battlefield .knight-sprite[data-knight-mount="none"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:base"] .hero-cel:nth-child(4){animation-name:aliciaSilverFour3}
+
+/* The approved exposed-face angel has four idle cels, rather than eight. */
+.battlefield .knight-sprite[data-knight-path="angel"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:angel"] .hero-cel{animation-duration:1.6s!important;animation-timing-function:steps(1,end)!important;animation-iteration-count:infinite!important}
+.battlefield .knight-sprite[data-knight-path="angel"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(1){animation-name:knightWing0!important}
+.battlefield .knight-sprite[data-knight-path="angel"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(2){animation-name:knightWing1!important}
+.battlefield .knight-sprite[data-knight-path="angel"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(3){animation-name:knightWing2!important}
+.battlefield .knight-sprite[data-knight-path="angel"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:angel"] .hero-cel:nth-child(4){animation-name:knightWing3!important}
+@media(prefers-reduced-motion:reduce){.battlefield .knight-sprite[data-knight-path="angel"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:angel"] .hero-cel{animation:none!important;opacity:0!important}.battlefield .knight-sprite[data-knight-path="angel"] .hero-poses:is(.poses-idle,.poses-walk)[data-sprite-profile="alicia:angel"] .hero-cel:first-child{opacity:1!important}}
+
+/* Non-pixel horse paintings use smooth browser downsampling at native resolution.
+   Scope both SVG and raster image so the shared pixel-art fallback cannot leak in. */
+#combat-workspace[data-mode="battle"] .knight-sprite[data-knight-mount="horse"] .hero-poses[data-sprite-profile="alicia:horse"] :is(.hero-cel,image){image-rendering:auto}
