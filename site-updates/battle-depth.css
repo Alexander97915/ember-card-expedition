@@ -1,0 +1,54 @@
+/* Shared ground plane with fixed formation anchors. */
+#combat-workspace[data-mode="battle"] .battlefield[data-battle-depth="true"]{display:block;padding:0;--depth-pose:clamp(132px,24dvh,235px);--depth-unit-width:clamp(68px,10vw,120px);--depth-dock-height:104px}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] :is(.battle-squad,.enemy-formation){display:contents!important;position:static!important;transform:none!important;isolation:auto!important}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] :is(.battle-actor,.field-enemy){position:absolute!important;left:var(--unit-x)!important;top:calc(100% - var(--hand-height,260px) - var(--depth-dock-height) - 28px - var(--depth-floor-lift,32px))!important;bottom:auto!important;right:auto!important;display:block!important;width:var(--depth-unit-width)!important;max-width:none!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;translate:-50% 0!important;transform:none!important;z-index:var(--unit-z)!important;background:none;border:0;overflow:visible}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .sprite-stage{position:absolute;bottom:0;left:0;width:100%;height:var(--depth-pose);flex:none;margin:0;container-type:size;animation:none!important;transform:none!important}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .hero-poses{--pose-size:var(--depth-pose);--pose-offset:calc((100% - var(--pose-size))/2)}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-sprite-target{position:absolute;left:50%;bottom:0;translate:-50% 0;width:100%;height:var(--depth-pose);min-height:0;flex:none;overflow:visible;container-type:normal;margin:0;padding:0;display:flex;align-items:flex-end;justify-content:center}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-art.enemy-illustration{width:var(--normalized-enemy-canvas,var(--depth-pose))!important;min-width:var(--normalized-enemy-canvas,var(--depth-pose))!important;max-width:none!important;max-height:none!important;height:auto;flex-shrink:0;transform:translateY(7.142857142857%)!important;transform-origin:50% 92.857142857143%;overflow:visible}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-overhead{position:absolute!important;top:auto!important;bottom:calc(var(--depth-enemy-height,150px) + 5px)!important;left:50%;translate:-50% 0;width:max-content;max-width:140px;height:24px!important;gap:2px;flex-wrap:nowrap;pointer-events:none}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-overhead .shield{width:22px;height:23px;min-width:22px}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .weak{width:16px;height:20px}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock{position:absolute;left:2%;right:2%;bottom:calc(var(--hand-height,260px) + 12px);height:var(--depth-dock-height);display:flex;align-items:stretch;gap:4px;z-index:450;pointer-events:none}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock>:is(.actor-hud,.enemy-label){position:relative!important;flex:1 1 0;width:0;min-width:0;height:100%!important;max-height:none!important;margin:0!important;padding:3px!important;pointer-events:auto;background:linear-gradient(#0e1629b8,#0e16294d);border-radius:5px;overflow:hidden}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock>.enemy-label{display:flex;flex-direction:column;justify-content:flex-start;font-size:9px}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock .enemy-label b{font-size:9px;line-height:12px;width:100%}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock .enemy-action{font-size:8px;line-height:10px;max-height:20px;overflow:hidden}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock .actor-vitals-title{flex-wrap:wrap;gap:0}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .action-caption{z-index:460;bottom:4px}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] :is(.enemy-frame-stage,.enemy-cel){overflow:visible}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .battle-ground{bottom:24%;height:43%;background:linear-gradient(transparent,#121c3180)}
+@media(max-width:600px){#combat-workspace[data-mode="battle"] .battlefield[data-battle-depth="true"]{--depth-pose:clamp(120px,21dvh,160px);--depth-unit-width:70px}#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock{left:1%;right:1%;gap:2px}#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock .enemy-label small{font-size:7px}}
+@media(prefers-reduced-motion:reduce){#combat-workspace[data-mode="battle"] [data-battle-depth="true"] :is(.battle-actor,.field-enemy){transition:none}#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-illustration[data-state="walk"] .enemy-frame-stage{animation:none}}
+
+@media(max-width:600px){
+ #combat-workspace[data-mode="battle"] .battlefield[data-battle-depth="true"]{--depth-dock-height:132px}
+ #combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:84px 44px;gap:3px}
+ #combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock>:is(.actor-hud,.enemy-label){grid-column:span var(--hud-span,4);width:100%!important;box-sizing:border-box}
+ #combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock>.enemy-label{display:grid;grid-template-rows:14px 3px 8px;gap:2px;padding:2px!important}
+ #combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock>.enemy-label>:is(.enemy-action,.region-enemy-info,.lightning-mark){display:none}
+ #combat-workspace[data-mode="battle"] [data-battle-depth="true"] .depth-hud-dock>.enemy-label .health-ui{margin:0 auto}
+}
+
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .battle-backdrop{height:calc(100% - var(--hand-height,260px) - var(--depth-dock-height) + 70px)!important;top:0!important;bottom:auto!important;object-position:50% 86%!important}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .battle-ground{bottom:calc(var(--hand-height,260px) + var(--depth-dock-height) - 50px);height:32%;background:linear-gradient(transparent,#151d2b55);pointer-events:none}
+
+
+/* Keep attack cels on their ground anchors while hit and skill effects play. */
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-state-attack .enemy-frame-stage{transform:none!important;translate:none!important}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"][data-knight-charge="true"] [data-hero="3"][data-knight-mount="horse"] .poses-attack{translate:none!important}
+
+/* A single contact plane anchors bodies and shadows to the visible lower floor. */
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .battle-actor .hero-poses{
+ --hero-ground-bottom:calc(var(--pose-size) * var(--pose-bottom) - var(--pose-size) * .023923444976)!important;
+ bottom:var(--hero-ground-bottom)!important;
+}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .battle-actor .sprite-shadow{
+ left:15%;right:15%;bottom:-5px!important;height:10px;background:radial-gradient(ellipse,#06080be0 0%,#080c1277 38%,transparent 73%);filter:blur(.6px);opacity:.85;animation:none;
+}
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-ground-shadow{
+ left:22%;right:22%;bottom:calc(7.142857142857% - 5px);height:10px;background:radial-gradient(ellipse,#06080be0 0%,#080c1277 38%,transparent 73%);filter:blur(.6px);
+}
+
+/* The former fixed-row layout reserved 36px inside each enemy canvas. */
+#combat-workspace[data-mode="battle"] [data-battle-depth="true"] .enemy-art.enemy-illustration{margin:0!important}

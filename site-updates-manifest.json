@@ -39,8 +39,8 @@
     },
     {
       "path": "abilities.js",
-      "bytes": 82920,
-      "sha256": "bb371c995d50bb6d8e9bf5422562c138cb450dec8cf127d31b47a404522673ff"
+      "bytes": 82890,
+      "sha256": "0ef0828f13893ed28f152b9757c913c99a9f73c7b653c0976e3ded19f76d2b37"
     },
     {
       "path": "mobile-combat.js",
@@ -49,8 +49,8 @@
     },
     {
       "path": "game.js",
-      "bytes": 68514,
-      "sha256": "c3d2488b56b597205d739cbdb2e8a4fff2ec990f9868f3813e214627245604b0"
+      "bytes": 68570,
+      "sha256": "99260f2bc3ab8daad8f8af5bfbd1792272ed9c8227538d40d8b3069945faf449"
     },
     {
       "path": "swordsman-frames-v1.js",
@@ -64,8 +64,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 23676,
-      "sha256": "20e2407843b33d555453f9fa242fe19917d174b3a76971665d8a683063fa9239"
+      "bytes": 15235,
+      "sha256": "7ef75cd677e31eecc196d3c2b6eb463a993b79106d608bc2880420feaa48423a"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -224,8 +224,8 @@
     },
     {
       "path": "monsters.js",
-      "bytes": 30869,
-      "sha256": "8364a2de175680e9588786c0050e8ff3cdb380d4d70d4f73687084782b8a0b5d"
+      "bytes": 30799,
+      "sha256": "ad458bef7c299ecba683108b444121d476a0b98ca074516854c5f7eaf30624b3"
     },
     {
       "path": "knight-five-actions.js",
@@ -369,8 +369,8 @@
     },
     {
       "path": "priest-form-art.js",
-      "bytes": 3864,
-      "sha256": "79910f19a714c3733fe570a198c88d13572442db4ce1f06798d4a76c1aad71c6"
+      "bytes": 3834,
+      "sha256": "a014310a41c29fd59cef80aea6e94551d80d896e62b06eca5ff7f2a50042fe82"
     },
     {
       "path": "assets/priest-forms-v1/nunCast.webp",
@@ -434,17 +434,92 @@
     },
     {
       "path": "battle-depth.js",
-      "bytes": 10230,
-      "sha256": "b9721f802616b24e87776ff4eea8b31b2d967a0886ed529865e8f40b9edf4dca"
+      "bytes": 5925,
+      "sha256": "0116fc49c3777c6fd957b11f377318e43dd89e053b49a872b314caccac87ab55"
     },
     {
       "path": "combat.js",
-      "bytes": 34805,
-      "sha256": "e1d248626d4d58cb5b7d1bc4c534f1845426eba0bbedd4e2b4fb57ead63581db"
+      "bytes": 34422,
+      "sha256": "da85cf4f86de30cb8939c153e5596435221230cee201c030203c0e46114bc722"
+    },
+    {
+      "path": "battle-depth.css",
+      "bytes": 7917,
+      "sha256": "48b02626e16c927a24811656715c28b16d4de31f53b7f9eab743ed842f8eca19"
+    },
+    {
+      "path": "elemental-hair-frames.js",
+      "bytes": 9885,
+      "sha256": "5a1cc2efe70e2f9c961614dfc207e77551f18b2adbd961c8e9c9d489d801120d"
+    },
+    {
+      "path": "blood-rage-presence.js",
+      "bytes": 14766,
+      "sha256": "9d53ab1dbba8a9191cb22882764e6ae5d673f17395c7e7309b51b579a5f59164"
+    },
+    {
+      "path": "party-refit-apply-v27.js",
+      "bytes": 4629,
+      "sha256": "24b83e39f126a802c94941c9d76a840b46b2c4880ed7473a258a3e42fd795b18"
+    },
+    {
+      "path": "hero-frames.js",
+      "bytes": 74550,
+      "sha256": "cbfcfcb2edfd8c1e48ad1da42ad2cb51325826dac6b5c41648453c4976686315"
+    },
+    {
+      "path": "ranger-vfx.js",
+      "bytes": 34294,
+      "sha256": "2af91447884e1544fa58afcac4f491c96ca474589ae469aeb5fdf3ab43170fb0"
+    },
+    {
+      "path": "mage-vfx.js",
+      "bytes": 20380,
+      "sha256": "814a69f2692d1f602c3b21db0ae6dd0ab3d81b37fd57e146d8c5f4f6aa7821db"
+    },
+    {
+      "path": "mage-base-apply-v33.js",
+      "bytes": 2192,
+      "sha256": "a4ad2bdcc9395d4583eed91097a3aebf755517bfe1af2be46f35d45b2826792c"
+    },
+    {
+      "path": "mage-basic.js",
+      "bytes": 3261,
+      "sha256": "d9ade3ba525431d80c67129af910587a099c9745784ae7e1de2c834d9c6457c3"
+    },
+    {
+      "path": "warrior-vfx.js",
+      "bytes": 25676,
+      "sha256": "0ab7e16e983d3ca2cc8690ff992850f8da1bd3376f1d88d8357ae6afc1efae52"
+    },
+    {
+      "path": "party-idle-apply-v29.js",
+      "bytes": 1445,
+      "sha256": "023a12c30136130952156a68bdbff7be25e3664b0d3c0e25acfee9e7f3ae249c"
+    },
+    {
+      "path": "party-special-apply-v28.js",
+      "bytes": 7114,
+      "sha256": "23f8481cf3c44a45c5a357fedd740c29df5050b0a38e7957ea1aa39f9a299939"
+    },
+    {
+      "path": "battle-fixes-v35.js",
+      "bytes": 3115,
+      "sha256": "b391caaee83c41fcaeee2484fd59a30867c21c1bac188d1f00e9956e486a2c7e"
+    },
+    {
+      "path": "priest-actions-v41.js",
+      "bytes": 2646,
+      "sha256": "d6127c333dda46512ddd64d8ceef076a719d91362607f6b418491efa1aa67fd8"
+    },
+    {
+      "path": "mage-elements-apply-v34.js",
+      "bytes": 2953,
+      "sha256": "4ad29c86a55bef7cd188b37e55a75696e233cdeaef31607ca25749088a94db25"
     }
   ],
-  "siteFileCount": 1415,
-  "siteBytes": 291369222,
+  "siteFileCount": 1416,
+  "siteBytes": 291860149,
   "actions": [
     "idle",
     "attack",
@@ -459,5 +534,78 @@
     "save-transfer.html",
     "save-transfer.js"
   ],
-  "sourceCommit": "844bae386cd2038711e79545f1314d7e4a2ff206"
+  "sourceCommit": "844bae386cd2038711e79545f1314d7e4a2ff206",
+  "stylesheetBundle": {
+    "path": "ember-styles.css",
+    "bytes": 502374,
+    "sha256": "552161b670d542ec6c03b006e3313982d7b16c0ba425c9f63afa13e946dede74",
+    "sources": [
+      "style.css",
+      "battle-layout.css",
+      "character-art.css",
+      "animated-headshots.css",
+      "simple-ui.css",
+      "titan-animation.css",
+      "battle-journal.css",
+      "training.css",
+      "mage-vfx.css",
+      "mage-school-vfx.css",
+      "fire-vfx.css",
+      "card-frames.css",
+      "battle-polish.css",
+      "living-cards.css",
+      "combat-overlay.css",
+      "combat-effect-anchors.css",
+      "ranger-vfx.css",
+      "ranger-painted-vfx.css",
+      "action-gauges.css",
+      "guard-reactions.css",
+      "ranger-ricochet.css",
+      "type-polish.css",
+      "blood-rage.css",
+      "warrior-vfx.css",
+      "raster-vfx.css",
+      "boss-scale.css",
+      "knight.css",
+      "expedition-ui.css",
+      "regions.css",
+      "area-bosses.css",
+      "endgame.css",
+      "final-boss-art.css",
+      "area-boss-visual.css",
+      "region-scenery.css",
+      "sprite-system.css",
+      "kohaku-blade-trail.css",
+      "region-creatures.css",
+      "alicia-ascension.css",
+      "knight-oaths.css",
+      "combat-quality.css",
+      "mage-passives.css",
+      "gear-codex.css",
+      "newcomer-tutorial.css",
+      "game-encyclopedia.css",
+      "enemy-size.css",
+      "anime-four.css",
+      "priest-v1.css",
+      "swordsman-v1.css",
+      "warrior-eight-vfx.css",
+      "alicia-feathers.css",
+      "health-iron.css",
+      "mage-basic.css",
+      "warrior-legendary-vfx.css",
+      "party-refit-v27.css",
+      "party-special-v28.css",
+      "party-idle-v29.css",
+      "angel-actions-v32.css",
+      "mage-base-v33.css",
+      "mage-elements-v34.css",
+      "battle-fixes-v35.css",
+      "mage-actions-v36.css",
+      "priest-actions-v41.css",
+      "battle-depth.css",
+      "mobile-polish.css",
+      "knight-five-actions.css",
+      "priest-forms.css"
+    ]
+  }
 }

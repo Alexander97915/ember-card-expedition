@@ -38,4 +38,4 @@ updateAutoHUD=function(...args){
  return r;
 };
 const priestFormPreloaded=new Set();
-preloadHeroArtwork=function(){PRIEST_FORM_ART_BASE.preload();if(typeof Image!=='function'||!inParty(4))return;for(const frames of Object.values(PRIEST_FORM_FRAMES))for(const f of frames)if(!priestFormPreloaded.has(f.asset)){priestFormPreloaded.add(f.asset);const img=new Image();img.decoding='async';img.src=f.asset}};
+preloadHeroArtwork=function(){PRIEST_FORM_ART_BASE.preload();if(typeof Image!=='function'||!inParty(4))return;for(const frames of Object.values(PRIEST_FORM_FRAMES))for(const f of frames)if(!priestFormPreloaded.has(f.asset)){priestFormPreloaded.add(f.asset);preloadBattleImage(f.asset);}};

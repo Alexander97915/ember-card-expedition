@@ -288,7 +288,7 @@ Object.assign(KNIGHT_CARD_LINES,{knightjudgment:['消耗誓約 → 全體光 14�
 function knightCardTypeName(path){return {guardian:'守護型態',healer:'治療型態',dragon:'龍騎型態',angel:'天使型態',elephant:'戰象坐騎',rhino:'鐵犀坐騎',allosaur:'斑龍坐騎',griffin:'獅鷲坐騎'}[path]||''}
 
 let knightArtworkPreloaded=false;
-function preloadKnightArtwork(){if(knightArtworkPreloaded||typeof Image!=='function'||!inParty(3))return;knightArtworkPreloaded=true;const forms=[HERO_FRAME_LAYOUT[3],...(typeof KNIGHT_MOUNT_FRAMES==='undefined'?[]:Object.values(KNIGHT_MOUNT_FRAMES))],assets=new Set();for(const form of forms)for(const frames of Object.values(form))for(const f of frames)assets.add(f.asset);for(const src of assets){const img=new Image();img.decoding='async';img.src=src}}
+function preloadKnightArtwork(){if(knightArtworkPreloaded||typeof Image!=='function'||!inParty(3))return;knightArtworkPreloaded=true;const forms=[HERO_FRAME_LAYOUT[3],...(typeof KNIGHT_MOUNT_FRAMES==='undefined'?[]:Object.values(KNIGHT_MOUNT_FRAMES))],assets=new Set();for(const form of forms)for(const frames of Object.values(form))for(const f of frames)assets.add(f.asset);for(const src of assets){preloadBattleImage(src);}}
 
 // Four mount cards share the established two-health-bar lifecycle.
 const KNIGHT_MOUNTS={horse:{name:'銀鬃戰馬',hp:24},dragon:{name:'飛龍',hp:32},elephant:{name:'戰象',hp:35,card:'knightreservoir'},rhino:{name:'鐵犀',hp:30,card:'knightrotation'},allosaur:{name:'斑龍',hp:24,card:'knightdawnslash'},griffin:{name:'獅鷲',hp:25,card:'knightavatar'}};
