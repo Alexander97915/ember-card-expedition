@@ -49,8 +49,8 @@
     },
     {
       "path": "game.js",
-      "bytes": 68743,
-      "sha256": "ffc2b9acfffa4cab500695bfdd78d5f122be52d63046b13c926760215bbeb129"
+      "bytes": 69109,
+      "sha256": "6d1ca645117b5aa73ae85c710776b82636130fb92e4eb26745fc52d5138f0d48"
     },
     {
       "path": "swordsman-frames-v1.js",
@@ -65,7 +65,7 @@
     {
       "path": "index.html",
       "bytes": 15235,
-      "sha256": "0c2d1a4115b8be1a2cf0ed1cf1316ffc6607a9a7c8b1365f63ca23b55161899f"
+      "sha256": "797bd2a4328101abcef0116eb11a897c4e1d7e74329a0b163288404c4f372330"
     },
     {
       "path": "swordsman-actions-v2.js",
@@ -539,8 +539,8 @@
     },
     {
       "path": "animated-headshots.css",
-      "bytes": 2542,
-      "sha256": "ea0c70cc15b9bfd85cf4301d0f1e9c651a8e8811d48788c9ed5a54957c234285"
+      "bytes": 2959,
+      "sha256": "ce7041d80635e3bf7ec0abfed19a8792d7b6d6d7f40cdcc1570e4d97ba506acc"
     },
     {
       "path": "assets/roster-preview/selena-v1.webp",
@@ -551,10 +551,40 @@
       "path": "spell-casting.js",
       "bytes": 8477,
       "sha256": "4c656ac1f5600917e5376dfc1544f12ad6a83489ed2fbf805a47e0ddb9ab8df3"
+    },
+    {
+      "path": "assets/roster-portraits/kohaku-v1.webp",
+      "bytes": 104526,
+      "sha256": "d6ad5d28515789d13548989a4d3456006f6cd6b1ee82be2d156e3ddcdb3e3189"
+    },
+    {
+      "path": "assets/roster-portraits/sou-v1.webp",
+      "bytes": 91062,
+      "sha256": "c3c30302b899a8f6b961a452f3faa329f4f659b4c60486cd52a1d80f4d6aa413"
+    },
+    {
+      "path": "assets/roster-portraits/lia-v1.webp",
+      "bytes": 102900,
+      "sha256": "86276179f077d2b2e35683d9f5d0d29226ae9f2a0c82d51763c145bd8e94b4ce"
+    },
+    {
+      "path": "assets/roster-portraits/alicia-v1.webp",
+      "bytes": 89902,
+      "sha256": "d98b369354e68ed466065658020857b87a1522c7e19a27653a880b1959a4ecba"
+    },
+    {
+      "path": "assets/roster-portraits/seraphina-v1.webp",
+      "bytes": 102748,
+      "sha256": "0189c02528eb5f42d3af42b5bf1f46413c35578e4a1650879d6b018241585f31"
+    },
+    {
+      "path": "assets/roster-portraits/selena-v1.webp",
+      "bytes": 98078,
+      "sha256": "176dc1f2492183acd813efa22c443857ab33c877b56cc9c598233c2acd3964e6"
     }
   ],
-  "siteFileCount": 1421,
-  "siteBytes": 292415227,
+  "siteFileCount": 1427,
+  "siteBytes": 293005643,
   "actions": [
     "idle",
     "attack",
@@ -572,8 +602,8 @@
   "sourceCommit": "844bae386cd2038711e79545f1314d7e4a2ff206",
   "stylesheetBundle": {
     "path": "ember-styles.css",
-    "bytes": 502970,
-    "sha256": "b467b65b972ace7fafa7cfde1b8857014f410568a1ab53223bd3b84bfca8cad6",
+    "bytes": 503387,
+    "sha256": "68f1f5447158dd3e9ea1c28d2efdae5ba2724e4092c916116f0516a2de82d580",
     "sources": [
       "style.css",
       "battle-layout.css",
